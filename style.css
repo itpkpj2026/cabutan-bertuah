@@ -1,23 +1,35 @@
-body{
+*{
 
-margin:0;
-
-font-family:Arial;
-
-background:
-linear-gradient(
-135deg,
-#00152e,
-#004080
-);
-
-color:white;
+box-sizing:border-box;
 
 }
 
 
 
+body{
+
+margin:0;
+
+font-family:'Arial',sans-serif;
+
+background:
+
+radial-gradient(circle,#064d8f,#00152e);
+
+color:white;
+
+min-height:100vh;
+
+}
+
+
+
+/* HEADER */
+
+
 .header{
+
+height:150px;
 
 display:flex;
 
@@ -25,36 +37,45 @@ align-items:center;
 
 justify-content:center;
 
-gap:30px;
+gap:40px;
 
-padding:25px;
+border-bottom:2px solid #dcae32;
 
 }
-
 
 
 .logo{
 
-width:120px;
-height:120px;
+width:100px;
+
+height:100px;
+
 object-fit:contain;
+
 background:white;
-border-radius:10px;
+
+border-radius:15px;
 
 }
 
 
 
-.header h1{
+.header-text h1{
 
-font-size:45px;
+font-size:55px;
+
 margin:0;
 
+color:#ffd700;
+
+letter-spacing:2px;
+
 }
 
 
+.header-text p{
 
-.header h3{
+font-size:20px;
 
 text-align:center;
 
@@ -62,55 +83,102 @@ text-align:center;
 
 
 
-.dashboard{
+
+
+/* MAIN */
+
+
+.main{
 
 display:grid;
 
-grid-template-columns:300px 1fr;
+grid-template-columns:350px 1fr;
 
-gap:30px;
+gap:40px;
 
-width:90%;
+width:95%;
 
-margin:auto;
+margin:30px auto;
 
 }
 
 
 
-.panel{
+/* SIDEBAR */
 
-background:#06284d;
+
+.sidebar{
+
+background:#062b55;
 
 padding:25px;
 
 border-radius:20px;
 
+border:1px solid #285a8d;
+
+}
+
+
+.sidebar h2{
+
+color:#ffd700;
+
 }
 
 
 
-.box{
+.stat{
 
-background:white;
+display:flex;
 
-color:#002b55;
+align-items:center;
 
-margin:15px;
+gap:20px;
+
+background:#123e6b;
+
+margin:15px 0;
 
 padding:15px;
 
 border-radius:15px;
 
-font-size:20px;
+}
+
+
+
+.stat span{
+
+font-size:40px;
 
 }
 
 
 
-.box b{
+.stat label{
+
+display:block;
+
+font-size:14px;
+
+}
+
+
+
+.stat strong{
 
 font-size:35px;
+
+color:white;
+
+}
+
+
+
+.stat p{
+
+margin:0;
 
 }
 
@@ -120,17 +188,21 @@ button{
 
 width:100%;
 
+padding:18px;
+
 margin-top:15px;
 
-padding:18px;
+border:0;
+
+border-radius:12px;
 
 font-size:20px;
 
-background:#ffd700;
+font-weight:bold;
 
-border:none;
+background:#006cff;
 
-border-radius:15px;
+color:white;
 
 cursor:pointer;
 
@@ -138,13 +210,32 @@ cursor:pointer;
 
 
 
+button:hover{
+
+transform:scale(1.03);
+
+}
 
 
-.winner{
+
+.reset{
+
+background:#c92b2b;
+
+}
+
+
+
+
+
+/* WINNER */
+
+
+.winner-box{
 
 background:white;
 
-color:#002b55;
+color:#00244d;
 
 border-radius:30px;
 
@@ -152,42 +243,78 @@ padding:50px;
 
 text-align:center;
 
-box-shadow:
-0 0 30px gold;
+box-shadow:0 0 40px #ffd700;
 
 }
 
 
 
-.winner h2{
+.winner-title{
 
-font-size:50px;
-
-color:#d49b00;
-
-}
-
-
-
-#winnerName{
-
-font-size:55px;
+font-size:60px;
 
 font-weight:bold;
 
-margin:50px;
+color:#e6aa00;
 
 }
 
 
 
-.prize{
+.pemenang{
 
 font-size:30px;
 
-background:#ffd700;
+}
+
+
+
+#winner{
+
+font-size:60px;
+
+font-weight:bold;
+
+margin:40px 0;
+
+}
+
+
+
+.hadiah{
+
+background:#e7b900;
+
+color:black;
+
+font-size:30px;
 
 padding:20px;
+
+border-radius:15px;
+
+font-weight:bold;
+
+}
+
+
+
+
+
+/* TABLE */
+
+
+.winner-list{
+
+width:95%;
+
+margin:auto;
+
+background:white;
+
+color:#00244d;
+
+padding:25px;
 
 border-radius:20px;
 
@@ -195,19 +322,9 @@ border-radius:20px;
 
 
 
-.list{
+.winner-list h2{
 
-width:90%;
-
-margin:40px auto;
-
-background:white;
-
-color:#002b55;
-
-padding:20px;
-
-border-radius:20px;
+color:#00244d;
 
 }
 
@@ -217,15 +334,31 @@ table{
 
 width:100%;
 
+border-collapse:collapse;
+
 font-size:20px;
 
 }
 
 
 
-td,th{
+th{
+
+background:#00244d;
+
+color:white;
 
 padding:15px;
+
+}
+
+
+
+td{
+
+padding:15px;
+
+text-align:center;
 
 border-bottom:1px solid #ddd;
 
