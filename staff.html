@@ -2,134 +2,112 @@
 
 <html>
 
-<head>
-
-<title>
-Pengesahan Kehadiran PKPJ
-</title>
-
-<link rel="stylesheet" href="style.css">
-
-
-</head>
-
-
 <body>
 
-
-<header>
-
-<div class="brand">
-
-<img src="pkpj.png">
-
-
-<div>
 
 <h1>
 PENGESAHAN KEHADIRAN
 </h1>
 
-<p>
-CABUTAN BERTUAH PKPJ
-</p>
 
+<table border="1">
 
-</div>
-
-
-</div>
-
-
-</header>
-
-
-
-
-
-<div class="table">
-
-
-<h2>
-📋 SENARAI PESERTA KEHADIRAN
-</h2>
-
-
-<div class="info">
-
-Jumlah:
-<span id="jumlah">
-0
-</span>
-orang
-
-</div>
-
-
-<button onclick="loadAttendance()">
-
-🔄 REFRESH
-
-</button>
-
-
-
-<table>
-
-
-<thead>
-
-<tr>
-
-<th>
-BIL
-</th>
-
-
-<th>
-NAMA
-</th>
-
-
-<th>
-NO TEL
-</th>
-
-
-<th>
-STATUS
-</th>
-
-
-<th>
-TINDAKAN
-</th>
-
-
-</tr>
-
-</thead>
-
-
-
-<tbody id="attendance">
+<tbody id="data">
 
 </tbody>
-
 
 </table>
 
 
-</div>
+
+<script>
+
+
+const API="URL_APPSCRIPT";
 
 
 
+function load(){
 
 
-<script src="staff.js"></script>
+fetch(
+API+"?action=attendance"
+)
+
+
+.then(r=>r.json())
+
+
+.then(d=>{
+
+
+let html="";
+
+
+
+for(let i=1;i<d.length;i++){
+
+
+
+html+=`
+
+<tr>
+
+<td>${d[i][1]}</td>
+
+<td>${d[i][3]}</td>
+
+
+<td>
+
+<button onclick="ok(${i+1})">
+
+SAHKAN
+
+</button>
+
+</td>
+
+
+</tr>
+
+`;
+
+
+}
+
+
+data.innerHTML=html;
+
+
+});
+
+
+
+}
+
+
+
+function ok(row){
+
+
+fetch(
+API+
+"?action=approve&row="+row
+)
+.then(()=>load());
+
+
+}
+
+
+
+load();
+
+
+</script>
 
 
 </body>
-
 
 </html>
