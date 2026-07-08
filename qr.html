@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>
+QR Kehadiran PKPJ
+</title>
+
+
+<link rel="stylesheet" href="style.css">
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js">
+</script>
+
+
+</head>
+
+
+<body>
+
+
+
+<div class="qr-page">
+
+
+<div class="qr-card">
+
+
+<img 
+src="pkpj.png"
+class="qr-logo"
+>
+
+
+
+
+<h1>
+
+PERBADANAN KEMAJUAN PERUMAHAN JOHOR
+
+</h1>
+
+
+
+<h2>
+
+CABUTAN BERTUAH PKPJ
+
+</h2>
+
+
+
+<div class="line"></div>
+
+
+
+<h3>
+
+PENGESAHAN KEHADIRAN
+
+</h3>
+
+
+
+
+<div id="qrcode"></div>
+
+
+
+
+
+<div class="scan-title">
+
+📱 SCAN QR UNTUK KEHADIRAN
+
+</div>
+
+
+
+
+<p>
+
+Sila isi nama dan nombor telefon anda
+
+</p>
+
+
+
+<p>
+
+Terima kasih atas kerjasama anda
+
+</p>
+
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<script>
+
+
+new QRCode(
+
+document.getElementById("qrcode"),
+
+
+{
+
+text:
+
+"https://itpkpj2026.github.io/cabutan-bertuah/scan.html",
+
+
+width:300,
+
+
+height:300
+
+}
+
+
+);
+
+
+</script>
+
+
+
+
+</body>
+
+</html>
