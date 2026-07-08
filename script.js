@@ -1,23 +1,21 @@
-// =======================================
+// =====================================
 // CABUTAN BERTUAH PKPJ
-// FINAL JAVASCRIPT
-// =======================================
+// FINAL SCRIPT
+// =====================================
 
+
+// MASUKKAN URL APPS SCRIPT ANDA
 
 const API =
-"https://script.google.com/macros/s/AKfycbzx6sjPqXvi3nTVjra-hpoDZJ4DU9mEzsfMxF-Q38Gp0Y_Wb2NzXWiwuKzzfuTc9Jk/exec";
-
-
-
-let cabutanSemasa = 1;
+"https://script.google.com/macros/s/URL_ANDA/exec";
 
 
 
 
 
-// ===============================
-// LOAD STATISTIK
-// ===============================
+// =====================================
+// LOAD DATA DASHBOARD
+// =====================================
 
 
 function loadStats(){
@@ -46,69 +44,58 @@ data.hadir;
 
 
 
+let cabutan =
+data.cabutan;
+
+
+
+if(cabutan<1){
+
+cabutan=1;
+
+}
+
+
+
 document
 .getElementById("cabutan")
 .innerHTML =
-(data.menang + 1)
-+
-" / 20";
+cabutan+" / 20";
 
 
 
 });
 
 
-
 }
 
 
 
 
 
-// ===============================
+
+
+// =====================================
 // START CABUTAN
-// ===============================
+// =====================================
 
 
 function startDraw(){
+
+
+let count = 3;
 
 
 let countdown =
 document.getElementById("countdown");
 
 
-let winner =
-document.getElementById("winner");
 
-
-
-let hadiah =
-document.getElementById("hadiah");
-
-
-
-let drum =
-document.getElementById("drumroll");
-
-
-
-if(drum){
-
-drum.play();
-
-}
-
-
-
-let count=3;
-
-
-
-let timer=setInterval(()=>{
+let timer =
+setInterval(()=>{
 
 
 countdown.innerHTML=count;
-
 
 
 count--;
@@ -124,12 +111,10 @@ clearInterval(timer);
 countdown.innerHTML="";
 
 
-spinWinner();
-
+spinName();
 
 
 }
-
 
 
 },1000);
@@ -142,12 +127,15 @@ spinWinner();
 
 
 
-// ===============================
-// ANIMATION NAMA
-// ===============================
 
 
-function spinWinner(){
+
+// =====================================
+// ANIMASI NAMA
+// =====================================
+
+
+function spinName(){
 
 
 
@@ -156,19 +144,15 @@ document.getElementById("winner");
 
 
 
-let fake=[
+let names=[
 
 "MEMILIH",
 
-"ALI",
+".....",
 
-"AHMAD",
+".....",
 
-"NURUL HIDAYAH",
-
-"MOHAMAD SYAFIQ",
-
-"SITI NOR AZLINA"
+"....."
 
 ];
 
@@ -178,13 +162,14 @@ let i=0;
 
 
 
-let spin=setInterval(()=>{
+let animation =
+setInterval(()=>{
 
 
 box.innerHTML =
-fake[
+names[
 Math.floor(
-Math.random()*fake.length
+Math.random()*names.length
 )
 ];
 
@@ -194,14 +179,13 @@ i++;
 
 
 
-if(i>25){
+if(i>30){
 
 
-clearInterval(spin);
+clearInterval(animation);
 
 
 getWinner();
-
 
 
 }
@@ -212,6 +196,7 @@ getWinner();
 
 
 
+
 }
 
 
@@ -221,26 +206,23 @@ getWinner();
 
 
 
-// ===============================
+
+// =====================================
 // DAPAT PEMENANG
-// ===============================
+// =====================================
 
 
 function getWinner(){
 
 
-fetch(
-API+"?action=winner"
-)
+
+fetch(API+"?action=winner")
 
 
 .then(res=>res.json())
 
 
 .then(data=>{
-
-
-console.log(data);
 
 
 
@@ -256,6 +238,7 @@ return;
 
 
 
+
 document
 .getElementById("winner")
 .innerHTML =
@@ -266,37 +249,22 @@ data.nama;
 document
 .getElementById("hadiah")
 .innerHTML =
-data.hadiah;
+"🎁 "+data.hadiah;
 
 
 
 document
 .getElementById("cabutan")
 .innerHTML =
-data.bil + " / 20";
+data.cabutan+" / 20";
 
 
-
-let sound =
-document.getElementById(
-"winnerSound"
-);
-
-
-
-if(sound){
-
-sound.play();
-
-}
-
-
-
-confetti();
 
 
 
 loadList();
+
+loadStats();
 
 
 
@@ -312,24 +280,25 @@ loadList();
 
 
 
-// ===============================
-// SENARAI PEMENANG
-// ===============================
+
+
+// =====================================
+// LIST PEMENANG
+// =====================================
 
 
 function loadList(){
 
 
 
-fetch(
-API+"?action=list"
-)
+fetch(API+"?action=list")
 
 
 .then(res=>res.json())
 
 
 .then(data=>{
+
 
 
 let html="";
@@ -355,13 +324,12 @@ ${data[i][1]}
 
 
 <td>
-${data[i][2]}
+${data[i][3]}
 </td>
 
 
 <td>
-${new Date(data[i][3])
-.toLocaleString()}
+${formatDate(data[i][4])}
 </td>
 
 
@@ -395,12 +363,76 @@ html;
 
 
 
-// ===============================
-// RESET DISPLAY
-// ===============================
+
+// =====================================
+// FORMAT TARIKH
+// =====================================
 
 
-function resetWinner(){
+function formatDate(date){
+
+
+if(!date){
+
+return "-";
+
+}
+
+
+return new Date(date)
+.toLocaleString();
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+// =====================================
+// RESET SEMUA
+// =====================================
+
+
+function resetAll(){
+
+
+
+let confirmBox =
+
+confirm(
+"Reset semua cabutan?"
+);
+
+
+
+if(!confirmBox){
+
+return;
+
+}
+
+
+
+fetch(
+API+"?action=reset"
+)
+
+
+.then(res=>res.json())
+
+
+.then(data=>{
+
+
+alert(data.status);
+
 
 
 document
@@ -413,7 +445,30 @@ document
 document
 .getElementById("hadiah")
 .innerHTML =
-"HADIAH UTAMA";
+"SEDIA";
+
+
+
+document
+.getElementById("cabutan")
+.innerHTML =
+"20 / 20";
+
+
+
+document
+.getElementById("list")
+.innerHTML =
+"";
+
+
+
+loadStats();
+
+
+
+});
+
 
 
 }
@@ -422,17 +477,17 @@ document
 
 
 
-// ===============================
+
+
+
+
+// =====================================
 // FULLSCREEN
-// ===============================
+// =====================================
 
 
 function fullscreenMode(){
 
-
-if(
-document.documentElement.requestFullscreen
-){
 
 
 document
@@ -444,137 +499,21 @@ document
 }
 
 
-}
 
 
 
 
 
 
-// ===============================
-// CONFETTI
-// ===============================
 
-
-function confetti(){
-
-
-
-let canvas =
-document.getElementById(
-"confetti"
-);
-
-
-
-if(!canvas)return;
-
-
-
-let ctx =
-canvas.getContext("2d");
-
-
-
-canvas.width =
-window.innerWidth;
-
-
-
-canvas.height =
-window.innerHeight;
-
-
-
-let particles=[];
-
-
-
-for(let i=0;i<200;i++){
-
-
-particles.push({
-
-x:Math.random()*canvas.width,
-
-y:Math.random()*canvas.height,
-
-size:Math.random()*8+2
-
-});
-
-
-}
-
-
-
-
-
-function animate(){
-
-
-ctx.clearRect(
-0,
-0,
-canvas.width,
-canvas.height
-);
-
-
-
-particles.forEach(p=>{
-
-
-ctx.fillRect(
-p.x,
-p.y,
-p.size,
-p.size
-);
-
-
-
-p.y+=3;
-
-
-
-if(p.y>canvas.height){
-
-p.y=0;
-
-}
-
-
-
-});
-
-
-
-requestAnimationFrame(animate);
-
-
-
-}
-
-
-
-animate();
-
-
-
-}
-
-
-
-
-
-// AUTO LOAD
+// AUTO REFRESH
 
 
 setInterval(
 loadStats,
 5000
 );
+
 
 
 loadStats();
