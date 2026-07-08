@@ -1,14 +1,8 @@
-/* =====================================
- PKPJ CABUTAN BERTUAH
- INDEX PAGE FINAL
-===================================== */
-
-
 *{
 
 box-sizing:border-box;
 
-font-family:Arial, Helvetica, sans-serif;
+font-family:Arial,sans-serif;
 
 }
 
@@ -31,92 +25,66 @@ color:white;
 
 header{
 
-
 height:90px;
-
 
 background:#052b55;
 
-
 border-bottom:3px solid #d9ad00;
 
-
 display:flex;
-
-
-align-items:center;
-
 
 justify-content:center;
 
+align-items:center;
 
 }
 
 
 
-.brand{
-
+.header-brand{
 
 display:flex;
 
-
 align-items:center;
-
 
 gap:20px;
 
-
 }
 
 
 
-.brand img{
-
+.header-brand img{
 
 width:65px;
 
-
 height:65px;
-
 
 background:white;
 
-
 border-radius:10px;
-
-
-object-fit:contain;
-
 
 }
 
 
 
-.brand h1{
-
+.header-brand h1{
 
 margin:0;
 
+font-size:34px;
 
 color:#ffd000;
 
-
-font-size:32px;
-
-
 }
 
 
 
-.brand p{
+.header-brand p{
 
-
-margin:5px 0;
-
+margin:5px;
 
 font-size:13px;
 
-
 }
 
 
@@ -124,44 +92,35 @@ font-size:13px;
 
 
 
-/* MAIN LAYOUT */
+
+/* MAIN */
 
 
 .dashboard{
 
-
 display:grid;
 
+grid-template-columns:280px 1fr;
 
-grid-template-columns:260px 1fr;
+gap:25px;
 
-
-gap:20px;
-
-
-padding:20px;
-
+padding:25px;
 
 }
 
 
 
 
-
-/* LEFT PANEL */
+/* LEFT */
 
 
 .sidebar{
 
-
 background:#06284d;
-
-
-border-radius:15px;
-
 
 padding:20px;
 
+border-radius:15px;
 
 }
 
@@ -169,87 +128,75 @@ padding:20px;
 
 .sidebar h2{
 
-
 color:#ffd000;
-
-
-font-size:20px;
-
 
 }
 
 
 
-.info-box{
-
+.info{
 
 background:#124274;
 
+padding:18px;
 
-padding:15px;
-
-
-margin:12px 0;
-
+margin-bottom:12px;
 
 border-radius:12px;
 
+font-size:15px;
 
 }
 
 
 
-.info-box span{
+.info span{
 
-
-font-size:28px;
-
+font-size:30px;
 
 font-weight:bold;
 
-
 }
 
 
 
 
 
-.start-btn{
-
+button{
 
 width:100%;
 
-
 padding:15px;
 
+margin-top:12px;
+
+border:0;
+
+border-radius:10px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+}
+
+
+
+.btn-start{
 
 background:#087cff;
 
-
 color:white;
-
 
 }
 
 
 
-.reset-btn{
-
-
-width:100%;
-
-
-padding:15px;
-
-
-margin-top:10px;
-
+.btn-reset{
 
 background:#d62828;
 
-
 color:white;
-
 
 }
 
@@ -258,58 +205,49 @@ color:white;
 
 
 
-/* WINNER AREA */
+
+/* WINNER */
 
 
-.main-panel{
-
+.winner-box{
 
 background:white;
 
-
 color:#052b55;
-
 
 border-radius:25px;
 
+min-height:420px;
 
-padding:40px;
+display:flex;
 
+flex-direction:column;
 
-min-height:400px;
+justify-content:center;
 
-
-text-align:center;
-
+align-items:center;
 
 box-shadow:
 
 0 0 30px rgba(255,215,0,.5);
 
-
 }
 
 
 
+.winner-box h2{
 
-.main-panel h2{
-
+font-size:40px;
 
 color:#d9ad00;
 
-
-font-size:38px;
-
-
 }
 
 
 
-.sub-title{
-
+.winner-box p{
 
 font-size:18px;
-
 
 }
 
@@ -318,15 +256,11 @@ font-size:18px;
 
 #winner{
 
-
 font-size:50px;
-
 
 font-weight:bold;
 
-
-margin:50px 0;
-
+margin:40px;
 
 }
 
@@ -336,21 +270,15 @@ margin:50px 0;
 
 #hadiah{
 
-
 background:#e8b900;
 
+padding:15px 50px;
 
-padding:15px;
-
-
-border-radius:12px;
-
+border-radius:10px;
 
 font-size:24px;
 
-
 font-weight:bold;
-
 
 }
 
@@ -359,40 +287,39 @@ font-weight:bold;
 
 
 
-/* TABLE PEMENANG */
+
+/* TABLE */
 
 
-.winner-table{
+.table-box{
 
+margin:0 25px 25px;
 
 background:white;
 
-
 color:#052b55;
-
-
-margin:20px;
-
 
 padding:20px;
 
-
 border-radius:20px;
-
 
 }
 
+
+
+.table-box h2{
+
+margin-top:0;
+
+}
 
 
 
 table{
 
-
 width:100%;
 
-
 border-collapse:collapse;
-
 
 }
 
@@ -400,15 +327,11 @@ border-collapse:collapse;
 
 th{
 
-
 background:#052b55;
-
 
 color:white;
 
-
 padding:15px;
-
 
 }
 
@@ -416,46 +339,31 @@ padding:15px;
 
 td{
 
-
 padding:12px;
-
 
 text-align:center;
 
-
 border-bottom:1px solid #ddd;
-
 
 }
 
 
 
-
-
-
-/* MOBILE */
 
 
 @media(max-width:900px){
 
-
 .dashboard{
-
 
 grid-template-columns:1fr;
 
-
 }
-
 
 
 #winner{
 
-
 font-size:35px;
 
-
 }
-
 
 }
