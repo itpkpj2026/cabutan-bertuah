@@ -7,38 +7,16 @@ let cabutan=1;
 
 
 
-function loadStats(){
-
-
-fetch(API+"?action=stats")
-
-.then(r=>r.json())
-
-.then(data=>{
-
-
-document
-.getElementById("peserta")
-.innerHTML=data.total;
-
-
-document
-.getElementById("hadir")
-.innerHTML=data.hadir;
-
-
-});
-
-
-}
-
-
-
 function startDraw(){
 
 
-let box=
+let box =
 document.getElementById("winner");
+
+
+let hadiahBox =
+document.getElementById("hadiah");
+
 
 
 let count=3;
@@ -60,7 +38,7 @@ if(count<0){
 clearInterval(timer);
 
 
-spin();
+animateName();
 
 
 }
@@ -69,23 +47,25 @@ spin();
 },1000);
 
 
+
 }
 
 
 
 
-function spin(){
+
+function animateName(){
 
 
-let box=
+let box =
 document.getElementById("winner");
-
 
 
 let i=0;
 
 
-let anim=setInterval(()=>{
+let animation =
+setInterval(()=>{
 
 
 box.innerHTML=
@@ -95,10 +75,11 @@ box.innerHTML=
 i++;
 
 
-if(i>30){
+
+if(i>25){
 
 
-clearInterval(anim);
+clearInterval(animation);
 
 
 getWinner();
@@ -107,12 +88,11 @@ getWinner();
 }
 
 
-
 },100);
 
 
-
 }
+
 
 
 
@@ -121,34 +101,43 @@ function getWinner(){
 
 
 
-fetch(API+"?action=winner")
+fetch(
+API+"?action=winner"
+)
 
-.then(r=>r.json())
+
+
+.then(res=>res.json())
 
 .then(data=>{
 
 
 document
 .getElementById("winner")
-.innerHTML=
+.innerHTML =
 data.nama;
 
 
 
 document
 .getElementById("hadiah")
-.innerHTML=
+.innerHTML =
 data.hadiah;
+
+
+
+document
+.getElementById("cabutan")
+.innerHTML =
+data.bil+" / 20";
 
 
 
 loadList();
 
 
-confetti();
-
-
 });
+
 
 
 }
@@ -157,12 +146,17 @@ confetti();
 
 
 
+
 function loadList(){
 
 
-fetch(API+"?action=list")
+fetch(
+API+"?action=list"
+)
 
-.then(r=>r.json())
+
+.then(res=>res.json())
+
 
 .then(data=>{
 
@@ -170,10 +164,11 @@ fetch(API+"?action=list")
 let html="";
 
 
+
 for(let i=1;i<data.length;i++){
 
 
-html+=`
+html += `
 
 <tr>
 
@@ -185,13 +180,11 @@ html+=`
 
 <td>${data[i][3]}</td>
 
-
 </tr>
 
 `;
 
 }
-
 
 
 document
@@ -202,38 +195,19 @@ document
 
 });
 
-
 }
 
 
 
 
 
-function confetti(){
+function resetWinner(){
 
 
-document.body.classList.add(
-"winner-animation"
-);
-
-
-setTimeout(()=>{
-
-document.body.classList.remove(
-"winner-animation"
-);
-
-},3000);
+document
+.getElementById("winner")
+.innerHTML=
+"SEDIA UNTUK CABUTAN";
 
 
 }
-
-
-
-
-
-setInterval(loadStats,5000);
-
-loadStats();
-
-loadList();
