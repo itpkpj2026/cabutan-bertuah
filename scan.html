@@ -2,126 +2,67 @@
 
 <html>
 
-<head>
-
-<title>
-Pengesahan Kehadiran PKPJ
-</title>
-
-
-<link rel="stylesheet" href="style.css">
-
-
-</head>
-
-
 <body>
 
 
-<header>
-
-
-<div class="brand">
-
-
-<img src="pkpj.png">
-
-
-<div>
-
 <h1>
-KEHADIRAN
+KEHADIRAN PKPJ
 </h1>
 
 
-<p>
-CABUTAN BERTUAH PKPJ
-</p>
+<input id="nama" placeholder="Nama">
+
+<br>
+
+<input id="telefon" placeholder="No Telefon">
+
+<br>
 
 
-</div>
+<button onclick="hantar()">
 
-
-</div>
-
-
-</header>
-
-
-
-
-
-<div class="form-container">
-
-
-<div class="attendance-card">
-
-
-<h2>
-📋 Daftar Kehadiran
-</h2>
-
-
-<p>
-Sila isi maklumat anda
-</p>
-
-
-
-
-<label>
-Nama Penuh
-</label>
-
-
-<input 
-id="nama"
-type="text"
-placeholder="Masukkan nama penuh">
-
-
-
-
-
-
-<label>
-No Telefon
-</label>
-
-
-<input 
-id="telefon"
-type="text"
-placeholder="Masukkan no telefon">
-
-
-
-
-
-<button onclick="submitAttendance()">
-
-✅ HANTAR KEHADIRAN
+HANTAR
 
 </button>
 
 
 
-
-<div id="result"></div>
-
-
-
-</div>
-
-
-</div>
+<p id="msg"></p>
 
 
 
 
+<script>
 
 
-<script src="scan.js"></script>
+const API="URL_APPS_SCRIPT";
+
+
+function hantar(){
+
+
+fetch(
+API+
+"?action=register"+
+"&nama="+nama.value+
+"&telefon="+telefon.value
+)
+
+
+.then(r=>r.json())
+
+.then(()=>{
+
+msg.innerHTML=
+"KEHADIRAN BERJAYA DIREKODKAN";
+
+});
+
+
+}
+
+
+</script>
 
 
 </body>
