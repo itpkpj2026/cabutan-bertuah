@@ -5,10 +5,11 @@
 <head>
 
 <title>
-Staff Verification PKPJ
+Pengesahan Kehadiran PKPJ
 </title>
 
 <link rel="stylesheet" href="style.css">
+
 
 </head>
 
@@ -26,12 +27,13 @@ Staff Verification PKPJ
 <div>
 
 <h1>
-STAFF VERIFICATION
+PENGESAHAN KEHADIRAN
 </h1>
 
 <p>
 CABUTAN BERTUAH PKPJ
 </p>
+
 
 </div>
 
@@ -49,8 +51,27 @@ CABUTAN BERTUAH PKPJ
 
 
 <h2>
-📋 SENARAI KEHADIRAN
+📋 SENARAI PESERTA KEHADIRAN
 </h2>
+
+
+<div class="info">
+
+Jumlah:
+<span id="jumlah">
+0
+</span>
+orang
+
+</div>
+
+
+<button onclick="loadAttendance()">
+
+🔄 REFRESH
+
+</button>
+
 
 
 <table>
@@ -61,16 +82,24 @@ CABUTAN BERTUAH PKPJ
 <tr>
 
 <th>
+BIL
+</th>
+
+
+<th>
 NAMA
 </th>
+
 
 <th>
 NO TEL
 </th>
 
+
 <th>
 STATUS
 </th>
+
 
 <th>
 TINDAKAN
@@ -84,7 +113,6 @@ TINDAKAN
 
 
 <tbody id="attendance">
-
 
 </tbody>
 
@@ -102,5 +130,6 @@ TINDAKAN
 
 
 </body>
+
 
 </html>
