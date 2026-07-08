@@ -1,5 +1,13 @@
+// =================================
+// PKPJ ATTENDANCE
+// FINAL JAVASCRIPT
+// =================================
+
+
+
 const API =
 "https://script.google.com/macros/s/AKfycbzx6sjPqXvi3nTVjra-hpoDZJ4DU9mEzsfMxF-Q38Gp0Y_Wb2NzXWiwuKzzfuTc9Jk/exec";
+
 
 
 
@@ -8,28 +16,59 @@ const API =
 function submitAttendance(){
 
 
+
 let nama =
-document.getElementById("nama").value;
+document
+.getElementById("nama")
+.value
+.trim();
+
 
 
 let telefon =
-document.getElementById("telefon").value;
+document
+.getElementById("telefon")
+.value
+.trim();
 
 
 
-if(
-nama==""
-||
-telefon==""
-){
+
+
+
+if(nama=="" || telefon==""){
+
 
 alert(
 "Sila lengkapkan maklumat"
 );
 
+
 return;
 
+
 }
+
+
+
+
+
+
+
+let button =
+document.querySelector("button");
+
+
+
+button.innerHTML =
+"⏳ Menghantar...";
+
+
+
+button.disabled=true;
+
+
+
 
 
 
@@ -37,12 +76,23 @@ return;
 fetch(
 
 API+
-"?action=register&nama="
+
+"?action=register"
+
 +
+
+"&nama="
+
++
+
 encodeURIComponent(nama)
+
 +
+
 "&telefon="
+
 +
+
 encodeURIComponent(telefon)
 
 )
@@ -52,33 +102,83 @@ encodeURIComponent(telefon)
 .then(res=>res.json())
 
 
+
 .then(data=>{
 
 
+
+
+
 document
-.getElementById("result")
-.innerHTML=
+.querySelector(".attendance-card")
+.innerHTML = `
 
-`
 
-<h3>
-✅ KEHADIRAN BERJAYA
-</h3>
 
-<p>
-${nama}
-</p>
+<div class="success-icon">
 
-<p>
-Sila tunggu pengesahan staff
-</p>
+✅
+
+</div>
+
+
+
+<div class="success-title">
+
+KEHADIRAN BERJAYA DIREKODKAN
+
+</div>
+
+
+
+<br>
+
+
+<div class="success-text">
+
+Terima kasih.
+
+</div>
+
+
 
 `;
 
 
-document.getElementById("nama").value="";
 
-document.getElementById("telefon").value="";
+
+
+})
+
+
+
+
+
+
+
+.catch(error=>{
+
+
+
+console.log(error);
+
+
+
+alert(
+
+"Ralat sambungan. Sila cuba lagi."
+
+);
+
+
+
+button.innerHTML =
+
+"HANTAR KEHADIRAN";
+
+
+
+button.disabled=false;
 
 
 
