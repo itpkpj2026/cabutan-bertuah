@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-
 <html>
 
 <head>
 
 <title>
-Cabutan Bertuah
+Cabutan Bertuah PKPJ
 </title>
 
 <link rel="stylesheet" href="style.css">
@@ -16,12 +15,117 @@ Cabutan Bertuah
 <body>
 
 
-<div class="container">
+<div class="header">
 
+
+<img src="assets/pkpj.png" class="logo">
+
+
+<div>
 
 <h1>
-🎁 CABUTAN BERTUAH
+CABUTAN BERTUAH
 </h1>
+
+<h3>
+PERBADANAN KEMAJUAN PERUMAHAN JOHOR
+</h3>
+
+</div>
+
+
+</div>
+
+
+
+
+<div class="dashboard">
+
+
+
+<!-- PANEL KIRI -->
+
+<div class="panel">
+
+
+<h2>
+MAKLUMAT CABUTAN
+</h2>
+
+
+<div class="box">
+
+👥
+
+<p>
+JUMLAH PESERTA
+</p>
+
+<b id="peserta">
+140
+</b>
+
+</div>
+
+
+
+<div class="box">
+
+🎁
+
+<p>
+JUMLAH HADIAH
+</p>
+
+<b>
+20
+</b>
+
+</div>
+
+
+
+<div class="box">
+
+🏆
+
+<p>
+CABUTAN KE
+</p>
+
+<b id="bil">
+1 / 20
+</b>
+
+</div>
+
+
+
+<button onclick="startDraw()">
+
+🎲 MULA CABUTAN
+
+</button>
+
+
+
+<button onclick="resetWinner()">
+
+RESET
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+<!-- WINNER -->
+
+<div class="winner">
 
 
 <h2>
@@ -29,39 +133,78 @@ TAHNIAH!
 </h2>
 
 
-<div id="winner">
+<p>
+PEMENANG
+</p>
+
+
+<div id="winnerName">
 
 SEDIA UNTUK CABUTAN
 
 </div>
 
 
-<button onclick="startDraw()">
+<div class="prize">
 
-MULA CABUTAN
-
-</button>
-
-
-<div class="info">
-
-<h3>
-Jumlah Peserta : 140
-</h3>
-
-<h3>
-Jumlah Hadiah : 20
-</h3>
-
-<h3>
-Cabutan : 1 / 20
-</h3>
-
+HADIAH UTAMA
 
 </div>
 
 
 </div>
+
+
+
+</div>
+
+
+
+
+
+<div class="list">
+
+
+<h2>
+SENARAI PEMENANG
+</h2>
+
+
+<table>
+
+
+<thead>
+
+<tr>
+
+<th>
+BIL
+</th>
+
+<th>
+NAMA
+</th>
+
+<th>
+HADIAH
+</th>
+
+</tr>
+
+</thead>
+
+
+<tbody id="winnerList">
+
+
+</tbody>
+
+
+</table>
+
+
+</div>
+
 
 
 
