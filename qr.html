@@ -5,11 +5,10 @@
 <head>
 
 <title>
-QR Kehadiran PKPJ
+Pengesahan Kehadiran PKPJ
 </title>
 
-
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="qr.css">
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js">
@@ -22,47 +21,38 @@ QR Kehadiran PKPJ
 <body>
 
 
-
-<div class="qr-page">
-
-
-<div class="qr-card">
+<div class="poster">
 
 
-<img 
-src="pkpj.png"
-class="qr-logo"
->
+<div class="card">
 
+
+<img src="pkpj.png" class="logo">
 
 
 
 <h1>
-
-PERBADANAN KEMAJUAN PERUMAHAN JOHOR
-
+PERBADANAN KEMAJUAN
+<br>
+PERUMAHAN JOHOR
 </h1>
 
 
 
 <h2>
-
 CABUTAN BERTUAH PKPJ
-
 </h2>
 
 
 
-<div class="line"></div>
+<div class="divider"></div>
+
 
 
 
 <h3>
-
 PENGESAHAN KEHADIRAN
-
 </h3>
-
 
 
 
@@ -70,32 +60,20 @@ PENGESAHAN KEHADIRAN
 
 
 
-
-
-<div class="scan-title">
-
+<h4>
 📱 SCAN QR UNTUK KEHADIRAN
-
-</div>
-
+</h4>
 
 
 
 <p>
-
 Sila isi nama dan nombor telefon anda
-
 </p>
-
 
 
 <p>
-
 Terima kasih atas kerjasama anda
-
 </p>
-
-
 
 
 </div>
@@ -114,27 +92,21 @@ new QRCode(
 
 document.getElementById("qrcode"),
 
-
 {
 
 text:
-
 "https://itpkpj2026.github.io/cabutan-bertuah/scan.html",
 
+width:250,
 
-width:300,
-
-
-height:300
+height:250
 
 }
-
 
 );
 
 
 </script>
-
 
 
 
