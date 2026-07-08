@@ -7,7 +7,7 @@
 // MASUKKAN URL APPS SCRIPT ANDA
 
 const API =
-"https://script.google.com/macros/s/URL_ANDA/exec";
+"https://script.google.com/macros/s/AKfycbzx6sjPqXvi3nTVjra-hpoDZJ4DU9mEzsfMxF-Q38Gp0Y_Wb2NzXWiwuKzzfuTc9Jk/exec";
 
 
 
