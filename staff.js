@@ -1,16 +1,17 @@
 const API =
-"https://script.google.com/macros/s/URL_ANDA/exec";
-
+"https://script.google.com/macros/s/AKfycbzx6sjPqXvi3nTVjra-hpoDZJ4DU9mEzsfMxF-Q38Gp0Y_Wb2NzXWiwuKzzfuTc9Jk/exec";
 
 
 
 function loadAttendance(){
 
 
-fetch(API+"?action=attendance")
+fetch(
+API+"?action=attendance"
+)
 
 
-.then(r=>r.json())
+.then(res=>res.json())
 
 
 .then(data=>{
@@ -23,11 +24,10 @@ let html="";
 for(let i=1;i<data.length;i++){
 
 
+
 html += `
 
-
 <tr>
-
 
 <td>
 ${data[i][1]}
@@ -59,7 +59,6 @@ SAHKAN
 
 </tr>
 
-
 `;
 
 }
@@ -68,7 +67,6 @@ SAHKAN
 document
 .getElementById("attendance")
 .innerHTML=html;
-
 
 
 });
@@ -80,7 +78,9 @@ document
 
 
 
+
 function approve(row){
+
 
 
 fetch(
@@ -89,7 +89,7 @@ API+
 )
 
 
-.then(r=>r.json())
+.then(res=>res.json())
 
 
 .then(data=>{
@@ -109,8 +109,8 @@ loadAttendance();
 
 
 
-
 loadAttendance();
+
 
 setInterval(
 loadAttendance,
