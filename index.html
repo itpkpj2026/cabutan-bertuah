@@ -3,9 +3,7 @@
 
 <head>
 
-<title>
-Cabutan Bertuah PKPJ
-</title>
+<title>Cabutan Bertuah PKPJ</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -17,106 +15,120 @@ Cabutan Bertuah PKPJ
 
 <div class="header">
 
-
 <img src="pkpj.png" class="logo">
 
-<div>
 
-<h1>
-CABUTAN BERTUAH
-</h1>
+<div class="header-text">
 
-<h3>
+<h1>CABUTAN BERTUAH</h1>
+
+<p>
 PERBADANAN KEMAJUAN PERUMAHAN JOHOR
-</h3>
+</p>
+
+</div>
 
 </div>
 
 
-</div>
 
 
-
-
-<div class="dashboard">
-
+<div class="main">
 
 
 <!-- PANEL KIRI -->
 
-<div class="panel">
+<div class="sidebar">
 
 
-<h2>
-MAKLUMAT CABUTAN
-</h2>
+<h2>MAKLUMAT CABUTAN</h2>
 
 
-<div class="box">
+<div class="stat">
 
-👥
+<span>👥</span>
 
-<p>
+<div>
+
+<label>
 JUMLAH PESERTA
-</p>
+</label>
 
-<b id="peserta">
+<strong>
 140
-</b>
+</strong>
+
+<p>
+orang
+</p>
+
+</div>
 
 </div>
 
 
 
-<div class="box">
 
-🎁
+<div class="stat">
 
-<p>
+<span>🎁</span>
+
+<div>
+
+<label>
 JUMLAH HADIAH
-</p>
+</label>
 
-<b>
+<strong>
 20
-</b>
-
-</div>
-
-
-
-<div class="box">
-
-🏆
+</strong>
 
 <p>
-CABUTAN KE
+hadiah
 </p>
 
-<b id="bil">
-1 / 20
-</b>
+</div>
 
 </div>
+
+
+
+
+<div class="stat">
+
+<span>🏆</span>
+
+<div>
+
+<label>
+CABUTAN KE
+</label>
+
+<strong>
+1 / 20
+</strong>
+
+
+</div>
+
+</div>
+
 
 
 
 <button onclick="startDraw()">
-
-🎲 MULA CABUTAN
-
+▶ MULA CABUTAN
 </button>
 
 
-
-<button onclick="resetWinner()">
-
-RESET
-
+<button class="reset"
+onclick="resetWinner()">
+↻ RESET
 </button>
+
 
 
 </div>
-
 
 
 
@@ -124,55 +136,60 @@ RESET
 
 <!-- WINNER -->
 
-<div class="winner">
+<div class="winner-box">
 
 
-<h2>
-TAHNIAH!
-</h2>
+<div class="winner-title">
+
+⭐ TAHNIAH! ⭐
+
+</div>
 
 
-<p>
+<p class="pemenang">
 PEMENANG
 </p>
 
 
-<div id="winnerName">
+
+<div id="winner">
 
 SEDIA UNTUK CABUTAN
 
 </div>
 
 
-<div class="prize">
+
+<div class="hadiah">
 
 HADIAH UTAMA
 
 </div>
 
 
-</div>
-
-
 
 </div>
 
 
 
+</div>
 
 
-<div class="list">
+
+
+
+<!-- LIST -->
+
+<div class="winner-list">
 
 
 <h2>
-SENARAI PEMENANG
+🏆 SENARAI PEMENANG
 </h2>
 
 
 <table>
 
-
-<thead>
 
 <tr>
 
@@ -188,13 +205,14 @@ NAMA
 HADIAH
 </th>
 
+<th>
+MASA
+</th>
+
 </tr>
 
-</thead>
 
-
-<tbody id="winnerList">
-
+<tbody id="list">
 
 </tbody>
 
@@ -211,5 +229,6 @@ HADIAH
 
 
 </body>
+
 
 </html>
