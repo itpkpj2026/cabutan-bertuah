@@ -1,115 +1,83 @@
 *{
-box-sizing:border-box;
+    box-sizing:border-box;
 }
-
 
 body{
-
-margin:0;
-
-font-family:Arial;
-
-background:
-linear-gradient(
-135deg,
-#001b3a,
-#004b8d
-);
-
-color:white;
-
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#001b3a;
+    color:white;
 }
 
 
-
+/* HEADER */
 
 header{
 
 height:120px;
-
-border-bottom:2px solid gold;
-
 display:flex;
-
-justify-content:center;
-
 align-items:center;
-
+justify-content:center;
+border-bottom:2px solid gold;
 position:relative;
 
 }
 
 
-
 .brand{
 
 display:flex;
-
 align-items:center;
-
 gap:25px;
 
 }
 
 
-
 .brand img{
 
 width:90px;
-
 height:90px;
-
-background:white;
-
-border-radius:15px;
-
 object-fit:contain;
 
 }
 
 
-
 .brand h1{
 
 margin:0;
-
 font-size:45px;
-
 color:#ffd700;
 
 }
 
 
-
 .brand p{
 
-text-align:center;
-
 margin:5px;
+font-size:16px;
 
 }
+
+
 
 
 
 .fullscreen{
 
 position:absolute;
-
 right:30px;
 
 width:55px;
-
 height:55px;
 
 border-radius:50%;
 
 background:#087cff;
-
 color:white;
 
-font-size:25px;
+border:none;
 
-border:0;
+font-size:25px;
 
 }
 
@@ -117,7 +85,7 @@ border:0;
 
 
 
-
+/* MAIN */
 
 .container{
 
@@ -135,7 +103,7 @@ margin:30px auto;
 
 
 
-
+/* LEFT */
 
 .left{
 
@@ -156,28 +124,21 @@ color:#ffd700;
 }
 
 
-
 .info{
 
 display:flex;
 
-gap:20px;
-
 align-items:center;
+
+gap:20px;
 
 background:#123e70;
 
-padding:15px;
+padding:20px;
 
 margin:15px 0;
 
 border-radius:15px;
-
-}
-
-
-
-.info:first-letter{
 
 font-size:30px;
 
@@ -185,11 +146,11 @@ font-size:30px;
 
 
 
-label{
+.info label{
+
+font-size:12px;
 
 display:block;
-
-font-size:13px;
 
 }
 
@@ -207,9 +168,9 @@ display:block;
 
 button{
 
-border:0;
-
 cursor:pointer;
+
+border:none;
 
 font-size:20px;
 
@@ -220,7 +181,6 @@ padding:18px;
 border-radius:12px;
 
 }
-
 
 
 .start{
@@ -253,6 +213,7 @@ margin-top:15px;
 
 
 
+/* WINNER */
 
 
 .winner{
@@ -263,6 +224,8 @@ color:#002957;
 
 border-radius:30px;
 
+min-height:450px;
+
 display:flex;
 
 flex-direction:column;
@@ -270,8 +233,6 @@ flex-direction:column;
 justify-content:center;
 
 align-items:center;
-
-min-height:450px;
 
 box-shadow:0 0 40px gold;
 
@@ -288,16 +249,11 @@ color:#dca800;
 }
 
 
-
 #winner{
 
 font-size:55px;
 
 font-weight:bold;
-
-text-align:center;
-
-margin:30px;
 
 }
 
@@ -325,8 +281,6 @@ padding:20px 80px;
 
 border-radius:15px;
 
-font-weight:bold;
-
 }
 
 
@@ -334,6 +288,7 @@ font-weight:bold;
 
 
 
+/* TABLE */
 
 .table{
 
@@ -352,7 +307,6 @@ border-radius:20px;
 }
 
 
-
 table{
 
 width:100%;
@@ -360,7 +314,6 @@ width:100%;
 border-collapse:collapse;
 
 }
-
 
 
 th{
@@ -374,29 +327,10 @@ padding:15px;
 }
 
 
-
 td{
 
 padding:15px;
 
 text-align:center;
-
-}
-
-
-
-#confetti{
-
-position:fixed;
-
-top:0;
-
-left:0;
-
-width:100%;
-
-height:100%;
-
-pointer-events:none;
 
 }
