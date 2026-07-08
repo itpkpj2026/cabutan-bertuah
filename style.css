@@ -1,20 +1,20 @@
 *{
-
 box-sizing:border-box;
-
 }
-
 
 
 body{
 
 margin:0;
 
-font-family:'Arial',sans-serif;
+font-family:Arial, sans-serif;
 
 background:
-
-radial-gradient(circle,#064d8f,#00152e);
+linear-gradient(
+135deg,
+#001b38,
+#003b75
+);
 
 color:white;
 
@@ -24,12 +24,13 @@ min-height:100vh;
 
 
 
-/* HEADER */
 
+
+/* HEADER */
 
 .header{
 
-height:150px;
+height:120px;
 
 display:flex;
 
@@ -37,18 +38,21 @@ align-items:center;
 
 justify-content:center;
 
-gap:40px;
+gap:30px;
 
-border-bottom:2px solid #dcae32;
+border-bottom:2px solid #d4af37;
+
+position:relative;
 
 }
 
 
+
 .logo{
 
-width:100px;
+width:90px;
 
-height:100px;
+height:90px;
 
 object-fit:contain;
 
@@ -60,11 +64,11 @@ border-radius:15px;
 
 
 
-.header-text h1{
-
-font-size:55px;
+.header-title h1{
 
 margin:0;
+
+font-size:45px;
 
 color:#ffd700;
 
@@ -73,11 +77,40 @@ letter-spacing:2px;
 }
 
 
-.header-text p{
 
-font-size:20px;
+.header-title p{
 
 text-align:center;
+
+font-size:16px;
+
+margin-top:5px;
+
+}
+
+
+
+.fullscreen{
+
+position:absolute;
+
+right:30px;
+
+top:35px;
+
+width:50px;
+
+height:50px;
+
+border-radius:50%;
+
+background:#006cff;
+
+color:white;
+
+border:none;
+
+font-size:25px;
 
 }
 
@@ -85,50 +118,59 @@ text-align:center;
 
 
 
-/* MAIN */
+/* DASHBOARD */
 
+.dashboard{
 
-.main{
 
 display:grid;
 
-grid-template-columns:350px 1fr;
+grid-template-columns:320px 1fr;
 
-gap:40px;
+gap:30px;
 
 width:95%;
 
 margin:30px auto;
 
+
 }
 
 
 
-/* SIDEBAR */
 
 
-.sidebar{
+/* LEFT PANEL */
 
-background:#062b55;
+
+.panel{
+
+background:#06284d;
 
 padding:25px;
 
 border-radius:20px;
 
-border:1px solid #285a8d;
+border:1px solid #3570a8;
 
 }
 
 
-.sidebar h2{
+
+.panel h2{
 
 color:#ffd700;
 
+font-size:22px;
+
 }
 
 
 
-.stat{
+
+
+.card{
+
 
 display:flex;
 
@@ -136,7 +178,7 @@ align-items:center;
 
 gap:20px;
 
-background:#123e6b;
+background:#123f70;
 
 margin:15px 0;
 
@@ -144,39 +186,41 @@ padding:15px;
 
 border-radius:15px;
 
-}
-
-
-
-.stat span{
-
-font-size:40px;
 
 }
 
 
 
-.stat label{
-
-display:block;
-
-font-size:14px;
-
-}
-
-
-
-.stat strong{
+.card span{
 
 font-size:35px;
 
-color:white;
+}
+
+
+
+.card label{
+
+display:block;
+
+font-size:13px;
 
 }
 
 
 
-.stat p{
+.card strong{
+
+
+display:block;
+
+font-size:35px;
+
+}
+
+
+
+.card p{
 
 margin:0;
 
@@ -184,7 +228,10 @@ margin:0;
 
 
 
+
+
 button{
+
 
 width:100%;
 
@@ -192,7 +239,7 @@ padding:18px;
 
 margin-top:15px;
 
-border:0;
+border:none;
 
 border-radius:12px;
 
@@ -200,19 +247,17 @@ font-size:20px;
 
 font-weight:bold;
 
-background:#006cff;
-
-color:white;
-
 cursor:pointer;
 
 }
 
 
 
-button:hover{
+.start{
 
-transform:scale(1.03);
+background:#087cff;
+
+color:white;
 
 }
 
@@ -220,7 +265,9 @@ transform:scale(1.03);
 
 .reset{
 
-background:#c92b2b;
+background:#d62d2d;
+
+color:white;
 
 }
 
@@ -230,12 +277,12 @@ background:#c92b2b;
 
 /* WINNER */
 
+.winner-area{
 
-.winner-box{
 
 background:white;
 
-color:#00244d;
+color:#002957;
 
 border-radius:30px;
 
@@ -243,27 +290,29 @@ padding:50px;
 
 text-align:center;
 
-box-shadow:0 0 40px #ffd700;
+box-shadow:
+0 0 40px gold;
+
 
 }
 
 
 
-.winner-title{
+.winner-area h2{
 
-font-size:60px;
 
-font-weight:bold;
+font-size:50px;
 
-color:#e6aa00;
+color:#e0a900;
+
 
 }
 
 
 
-.pemenang{
+.winner-area p{
 
-font-size:30px;
+font-size:25px;
 
 }
 
@@ -271,17 +320,22 @@ font-size:30px;
 
 #winner{
 
-font-size:60px;
+
+font-size:55px;
 
 font-weight:bold;
 
 margin:40px 0;
 
+
 }
 
 
 
-.hadiah{
+
+
+.prize{
+
 
 background:#e7b900;
 
@@ -295,6 +349,7 @@ border-radius:15px;
 
 font-weight:bold;
 
+
 }
 
 
@@ -304,27 +359,29 @@ font-weight:bold;
 /* TABLE */
 
 
-.winner-list{
+.table-section{
+
 
 width:95%;
 
-margin:auto;
+margin:30px auto;
 
 background:white;
 
-color:#00244d;
+color:#002957;
 
-padding:25px;
+padding:20px;
 
 border-radius:20px;
+
 
 }
 
 
 
-.winner-list h2{
+.table-section h2{
 
-color:#00244d;
+margin-top:0;
 
 }
 
@@ -332,11 +389,13 @@ color:#00244d;
 
 table{
 
+
 width:100%;
 
 border-collapse:collapse;
 
-font-size:20px;
+font-size:18px;
+
 
 }
 
@@ -344,11 +403,13 @@ font-size:20px;
 
 th{
 
-background:#00244d;
+
+background:#002957;
 
 color:white;
 
 padding:15px;
+
 
 }
 
@@ -356,10 +417,55 @@ padding:15px;
 
 td{
 
+
 padding:15px;
 
 text-align:center;
 
 border-bottom:1px solid #ddd;
+
+
+}
+
+
+
+
+
+/* COUNTDOWN */
+
+#countdown{
+
+
+font-size:80px;
+
+font-weight:bold;
+
+color:#dba900;
+
+
+}
+
+
+
+
+
+/* CONFETTI */
+
+#confetti{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+pointer-events:none;
+
+z-index:999;
+
 
 }
