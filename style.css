@@ -1,336 +1,615 @@
+/* =====================================
+   PKPJ CABUTAN BERTUAH
+   FULL STYLE CSS FINAL
+===================================== */
+
+
+
 *{
-    box-sizing:border-box;
+
+box-sizing:border-box;
+
+font-family:Arial, Helvetica, sans-serif;
+
 }
+
+
 
 body{
-    margin:0;
-    font-family:Arial, sans-serif;
-    background:#001b3a;
-    color:white;
+
+margin:0;
+
+background:#031d3a;
+
+color:white;
+
 }
 
 
-/* HEADER */
+
+
+
+/* =====================================
+ HEADER
+===================================== */
+
 
 header{
 
-height:120px;
+height:75px;
+
+background:#052b55;
+
+border-bottom:2px solid #d9ad00;
+
 display:flex;
+
 align-items:center;
+
 justify-content:center;
-border-bottom:2px solid gold;
-position:relative;
 
 }
+
 
 
 .brand{
 
 display:flex;
+
 align-items:center;
-gap:25px;
+
+gap:15px;
 
 }
+
 
 
 .brand img{
 
-width:90px;
-height:90px;
+width:55px;
+
+height:55px;
+
 object-fit:contain;
 
+background:white;
+
+border-radius:8px;
+
 }
+
 
 
 .brand h1{
 
 margin:0;
-font-size:45px;
-color:#ffd700;
+
+font-size:28px;
+
+color:#ffd000;
+
+letter-spacing:1px;
 
 }
+
 
 
 .brand p{
 
-margin:5px;
-font-size:16px;
-
-}
-
-
-
-
-
-.fullscreen{
-
-position:absolute;
-right:30px;
-
-width:55px;
-height:55px;
-
-border-radius:50%;
-
-background:#087cff;
-color:white;
-
-border:none;
-
-font-size:25px;
-
-}
-
-
-
-
-
-/* MAIN */
-
-.container{
-
-display:grid;
-
-grid-template-columns:320px 1fr;
-
-gap:30px;
-
-width:95%;
-
-margin:30px auto;
-
-}
-
-
-
-/* LEFT */
-
-.left{
-
-background:#06294f;
-
-padding:25px;
-
-border-radius:20px;
-
-}
-
-
-
-.left h2{
-
-color:#ffd700;
-
-}
-
-
-.info{
-
-display:flex;
-
-align-items:center;
-
-gap:20px;
-
-background:#123e70;
-
-padding:20px;
-
-margin:15px 0;
-
-border-radius:15px;
-
-font-size:30px;
-
-}
-
-
-
-.info label{
+margin:3px 0 0;
 
 font-size:12px;
 
-display:block;
-
-}
-
-
-
-.info strong{
-
-font-size:35px;
-
-display:block;
-
-}
-
-
-
-button{
-
-cursor:pointer;
-
-border:none;
-
-font-size:20px;
-
-font-weight:bold;
-
-padding:18px;
-
-border-radius:12px;
-
-}
-
-
-.start{
-
-width:100%;
-
-background:#087cff;
-
 color:white;
 
-margin-top:15px;
-
-}
-
-
-
-.reset{
-
-width:100%;
-
-background:#d52d2d;
-
-color:white;
-
-margin-top:15px;
-
 }
 
 
 
 
 
-/* WINNER */
 
 
-.winner{
+/* =====================================
+ MAIN CABUTAN DISPLAY
+===================================== */
+
+
+.container{
+
+padding:20px;
+
+}
+
+
+
+.card{
 
 background:white;
 
-color:#002957;
+color:#052b55;
 
-border-radius:30px;
+border-radius:20px;
 
-min-height:450px;
+padding:30px;
+
+box-shadow:
+0 0 25px rgba(255,215,0,0.5);
+
+}
+
+
+
+
+
+/* =====================================
+ FORM KEHADIRAN
+===================================== */
+
+
+.form-container{
 
 display:flex;
-
-flex-direction:column;
 
 justify-content:center;
 
 align-items:center;
 
-box-shadow:0 0 40px gold;
+min-height:75vh;
 
 }
 
 
 
-.winner h2{
+.attendance-card{
 
-font-size:50px;
-
-color:#dca800;
-
-}
-
-
-#winner{
-
-font-size:55px;
-
-font-weight:bold;
-
-}
-
-
-
-#countdown{
-
-font-size:80px;
-
-color:#dca800;
-
-}
-
-
-
-.prize{
-
-background:#e8b900;
-
-color:black;
-
-font-size:30px;
-
-padding:20px 80px;
-
-border-radius:15px;
-
-}
-
-
-
-
-
-
-/* TABLE */
-
-.table{
-
-width:95%;
-
-margin:30px auto;
 
 background:white;
 
-color:#002957;
 
-padding:20px;
+color:#052b55;
+
+
+width:430px;
+
+
+padding:35px;
+
 
 border-radius:20px;
 
+
+box-shadow:
+
+0 0 25px rgba(255,215,0,0.5);
+
+
 }
+
+
+
+.attendance-card h2{
+
+
+text-align:center;
+
+
+color:#d5a900;
+
+
+font-size:30px;
+
+
+margin-bottom:10px;
+
+
+}
+
+
+
+.attendance-card p{
+
+
+text-align:center;
+
+
+color:#555;
+
+
+margin-bottom:25px;
+
+
+}
+
+
+
+.attendance-card label{
+
+
+display:block;
+
+
+font-weight:bold;
+
+
+margin-top:18px;
+
+
+color:#052b55;
+
+
+}
+
+
+
+
+.attendance-card input{
+
+
+width:100%;
+
+
+padding:14px;
+
+
+margin-top:8px;
+
+
+border-radius:10px;
+
+
+border:1px solid #ccc;
+
+
+font-size:16px;
+
+
+outline:none;
+
+
+}
+
+
+
+.attendance-card input:focus{
+
+
+border:2px solid #d9ad00;
+
+
+}
+
+
+
+
+
+
+.attendance-card button{
+
+
+width:100%;
+
+
+padding:15px;
+
+
+margin-top:25px;
+
+
+border:none;
+
+
+border-radius:12px;
+
+
+background:#e5b900;
+
+
+color:#052b55;
+
+
+font-size:16px;
+
+
+font-weight:bold;
+
+
+cursor:pointer;
+
+
+}
+
+
+
+.attendance-card button:hover{
+
+
+background:#ffd900;
+
+
+}
+
+
+
+
+
+#result{
+
+
+margin-top:20px;
+
+
+text-align:center;
+
+
+font-size:18px;
+
+
+color:#008000;
+
+
+font-weight:bold;
+
+
+}
+
+
+
+
+
+
+
+/* =====================================
+ STAFF TABLE
+===================================== */
+
+
+
+.table{
+
+
+background:white;
+
+
+color:#052b55;
+
+
+margin:30px;
+
+
+padding:20px;
+
+
+border-radius:15px;
+
+
+}
+
+
+
+.table h2{
+
+
+color:#052b55;
+
+
+}
+
+
 
 
 table{
 
+
 width:100%;
+
 
 border-collapse:collapse;
 
+
 }
+
 
 
 th{
 
-background:#002957;
+
+background:#052b55;
+
 
 color:white;
 
-padding:15px;
+
+padding:12px;
+
 
 }
 
 
+
 td{
+
+
+padding:12px;
+
+
+text-align:center;
+
+
+border-bottom:1px solid #ddd;
+
+
+}
+
+
+
+
+
+button{
+
+
+cursor:pointer;
+
+
+}
+
+
+
+
+
+
+
+/* =====================================
+ BUTTON
+===================================== */
+
+
+.action-btn{
+
+
+background:#087cff;
+
+
+color:white;
+
+
+border:none;
+
+
+padding:10px 20px;
+
+
+border-radius:8px;
+
+
+font-weight:bold;
+
+
+}
+
+
+
+.reset-btn{
+
+
+background:#d62828;
+
+
+color:white;
+
+
+border:none;
+
+
+padding:10px 20px;
+
+
+border-radius:8px;
+
+
+}
+
+
+
+
+
+
+/* =====================================
+ WINNER DISPLAY
+===================================== */
+
+
+#winner{
+
+
+font-size:45px;
+
+
+font-weight:bold;
+
+
+color:#052b55;
+
+
+text-align:center;
+
+
+}
+
+
+
+#hadiah{
+
+
+background:#e8b900;
+
+
+color:#052b55;
+
 
 padding:15px;
 
+
+border-radius:10px;
+
+
+font-size:22px;
+
+
+font-weight:bold;
+
+
 text-align:center;
+
+
+}
+
+
+
+
+
+
+
+/* =====================================
+ MOBILE
+===================================== */
+
+
+@media(max-width:600px){
+
+
+
+.attendance-card{
+
+
+width:90%;
+
+
+}
+
+
+
+.brand h1{
+
+
+font-size:20px;
+
+
+}
+
+
+
+.table{
+
+
+margin:10px;
+
+
+overflow-x:auto;
+
+
+}
+
+
 
 }
