@@ -1,52 +1,58 @@
 /* =====================================
-   PKPJ ATTENDANCE SYSTEM
-   FULL CSS
+   PKPJ CABUTAN BERTUAH SYSTEM
+   FULL CSS FINAL
 ===================================== */
 
 
+/* RESET */
+
 *{
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+
+box-sizing:border-box;
+
+font-family:Arial, Helvetica, sans-serif;
+
 }
+
 
 
 body{
 
-    margin:0;
+margin:0;
 
-    min-height:100vh;
+min-height:100vh;
 
-    background:
-    linear-gradient(
-        135deg,
-        #021b36,
-        #063d73
-    );
+background:
+linear-gradient(
+135deg,
+#021b36,
+#06457d
+);
 
-    color:white;
+color:white;
 
 }
 
 
 
-/* ==============================
+/* =====================================
 HEADER
-============================== */
+===================================== */
 
 
 header{
 
-    background:#052b55;
+height:90px;
 
-    height:90px;
+background:#052b55;
 
-    display:flex;
+display:flex;
 
-    justify-content:center;
+justify-content:center;
 
-    align-items:center;
+align-items:center;
 
-    border-bottom:3px solid #d9ad00;
+border-bottom:3px solid #d9ad00;
 
 }
 
@@ -54,11 +60,11 @@ header{
 
 .brand{
 
-    display:flex;
+display:flex;
 
-    align-items:center;
+align-items:center;
 
-    gap:20px;
+gap:18px;
 
 }
 
@@ -66,15 +72,15 @@ header{
 
 .brand img{
 
-    width:65px;
+width:65px;
 
-    height:65px;
+height:65px;
 
-    object-fit:contain;
+object-fit:contain;
 
-    background:white;
+background:white;
 
-    border-radius:10px;
+border-radius:10px;
 
 }
 
@@ -82,13 +88,13 @@ header{
 
 .brand h1{
 
-    margin:0;
+margin:0;
 
-    color:#ffd000;
+font-size:30px;
 
-    font-size:32px;
+font-weight:800;
 
-    font-weight:800;
+color:#ffd000;
 
 }
 
@@ -96,9 +102,100 @@ header{
 
 .brand p{
 
-    margin:5px 0 0;
+margin:5px 0 0;
 
-    font-size:14px;
+font-size:14px;
+
+}
+
+
+
+
+
+/* =====================================
+CABUTAN DASHBOARD
+===================================== */
+
+
+.container{
+
+padding:25px;
+
+}
+
+
+
+.card{
+
+
+background:white;
+
+
+color:#052b55;
+
+
+border-radius:20px;
+
+
+padding:30px;
+
+
+box-shadow:
+
+0 0 25px rgba(255,215,0,.4);
+
+
+}
+
+
+
+
+#winner{
+
+
+font-size:55px;
+
+
+font-weight:900;
+
+
+text-align:center;
+
+
+color:#052b55;
+
+
+}
+
+
+
+
+#hadiah{
+
+
+margin-top:20px;
+
+
+padding:15px;
+
+
+background:#d9ad00;
+
+
+border-radius:12px;
+
+
+text-align:center;
+
+
+font-size:25px;
+
+
+font-weight:bold;
+
+
+color:#052b55;
+
 
 }
 
@@ -107,24 +204,63 @@ header{
 
 
 
-/* ==============================
-ATTENDANCE FORM
-============================== */
+
+/* =====================================
+BUTTON
+===================================== */
+
+
+button{
+
+
+border:none;
+
+
+cursor:pointer;
+
+
+font-weight:bold;
+
+
+border-radius:10px;
+
+
+}
+
+
+
+button:hover{
+
+
+opacity:.85;
+
+
+}
+
+
+
+
+
+
+
+/* =====================================
+KEHADIRAN FORM SCAN
+===================================== */
 
 
 .form-container{
 
 
-    min-height:80vh;
+min-height:80vh;
 
 
-    display:flex;
+display:flex;
 
 
-    justify-content:center;
+justify-content:center;
 
 
-    align-items:center;
+align-items:center;
 
 
 }
@@ -134,171 +270,109 @@ ATTENDANCE FORM
 .attendance-card{
 
 
-    width:430px;
+width:430px;
 
 
-    background:white;
+background:white;
 
 
-    color:#052b55;
+color:#052b55;
 
 
-    padding:40px;
+padding:40px;
 
 
-    border-radius:25px;
+border-radius:25px;
 
 
-    box-shadow:
-
-    0 0 30px rgba(255,215,0,0.5);
+text-align:center;
 
 
-    text-align:center;
+box-shadow:
+
+0 0 30px rgba(255,215,0,.5);
 
 
 }
-
 
 
 
 .attendance-card h2{
 
 
-    color:#d9ad00;
+font-size:30px;
 
 
-    font-size:30px;
-
-
-    margin-bottom:10px;
+color:#d9ad00;
 
 
 }
-
-
-
-
-.attendance-card p{
-
-
-    color:#555;
-
-
-    font-size:16px;
-
-
-}
-
 
 
 
 .attendance-card label{
 
 
-    display:block;
+display:block;
 
 
-    text-align:left;
+text-align:left;
 
 
-    margin-top:20px;
+margin-top:20px;
 
 
-    font-weight:bold;
+font-weight:bold;
 
 
 }
-
 
 
 
 .attendance-card input{
 
 
-    width:100%;
+width:100%;
 
 
-    padding:15px;
+padding:15px;
 
 
-    margin-top:8px;
+margin-top:8px;
 
 
-    border-radius:10px;
+border-radius:10px;
 
 
-    border:1px solid #ccc;
+border:1px solid #ccc;
 
 
-    font-size:16px;
-
-
-}
-
-
-
-
-
-.attendance-card input:focus{
-
-
-    outline:none;
-
-
-    border:2px solid #d9ad00;
+font-size:16px;
 
 
 }
-
-
-
-
 
 
 
 .attendance-card button{
 
 
-    width:100%;
+width:100%;
 
 
-    margin-top:30px;
+margin-top:25px;
 
 
-    padding:16px;
+padding:15px;
 
 
-    border:none;
+background:#d9ad00;
 
 
-    border-radius:12px;
+color:#052b55;
 
 
-    background:#d9ad00;
-
-
-    color:#052b55;
-
-
-    font-size:17px;
-
-
-    font-weight:bold;
-
-
-    cursor:pointer;
-
-
-}
-
-
-
-
-.attendance-card button:hover{
-
-
-    background:#ffd900;
+font-size:17px;
 
 
 }
@@ -309,15 +383,13 @@ ATTENDANCE FORM
 
 
 
-/* ==============================
-SUCCESS MESSAGE
-============================== */
+/* SUCCESS MESSAGE */
 
 
 .success-icon{
 
 
-    font-size:60px;
+font-size:60px;
 
 
 }
@@ -327,13 +399,13 @@ SUCCESS MESSAGE
 .success-title{
 
 
-    color:#008000;
+font-size:28px;
 
 
-    font-size:28px;
+font-weight:bold;
 
 
-    font-weight:bold;
+color:#008000;
 
 
 }
@@ -343,10 +415,10 @@ SUCCESS MESSAGE
 .success-text{
 
 
-    color:#052b55;
+font-size:20px;
 
 
-    font-size:20px;
+color:#052b55;
 
 
 }
@@ -355,9 +427,284 @@ SUCCESS MESSAGE
 
 
 
-/* ==============================
+
+
+/* =====================================
+STAFF PANEL
+===================================== */
+
+
+.table{
+
+
+background:white;
+
+
+color:#052b55;
+
+
+margin:30px;
+
+
+padding:25px;
+
+
+border-radius:20px;
+
+
+}
+
+
+
+table{
+
+
+width:100%;
+
+
+border-collapse:collapse;
+
+
+}
+
+
+
+th{
+
+
+background:#052b55;
+
+
+color:white;
+
+
+padding:12px;
+
+
+}
+
+
+
+td{
+
+
+padding:12px;
+
+
+text-align:center;
+
+
+border-bottom:1px solid #ddd;
+
+
+}
+
+
+
+.action-btn{
+
+
+background:#008000;
+
+
+color:white;
+
+
+padding:10px 20px;
+
+
+}
+
+
+
+
+
+
+
+
+/* =====================================
+QR PRINT PAGE
+===================================== */
+
+
+.qr-page{
+
+
+min-height:100vh;
+
+
+display:flex;
+
+
+justify-content:center;
+
+
+align-items:center;
+
+
+padding:30px;
+
+
+}
+
+
+
+.qr-card{
+
+
+background:white;
+
+
+color:#052b55;
+
+
+width:600px;
+
+
+padding:50px;
+
+
+border-radius:30px;
+
+
+text-align:center;
+
+
+box-shadow:
+
+0 0 35px rgba(255,215,0,.5);
+
+
+}
+
+
+
+.qr-logo{
+
+
+width:110px;
+
+
+height:110px;
+
+
+object-fit:contain;
+
+
+}
+
+
+
+.qr-card h1{
+
+
+font-size:24px;
+
+
+margin-top:20px;
+
+
+color:#052b55;
+
+
+}
+
+
+
+.qr-card h2{
+
+
+font-size:34px;
+
+
+color:#d9ad00;
+
+
+margin:15px 0;
+
+
+}
+
+
+
+.line{
+
+
+height:3px;
+
+
+background:#d9ad00;
+
+
+margin:25px 0;
+
+
+}
+
+
+
+.qr-card h3{
+
+
+font-size:28px;
+
+
+}
+
+
+
+#qrcode{
+
+
+display:flex;
+
+
+justify-content:center;
+
+
+margin:35px;
+
+
+}
+
+
+
+.scan-title{
+
+
+font-size:24px;
+
+
+font-weight:bold;
+
+
+color:#052b55;
+
+
+}
+
+
+
+.qr-card p{
+
+
+font-size:18px;
+
+
+color:#555;
+
+
+}
+
+
+
+
+
+
+
+/* =====================================
 MOBILE
-============================== */
+===================================== */
 
 
 @media(max-width:600px){
@@ -366,16 +713,17 @@ MOBILE
 
 .brand h1{
 
-    font-size:22px;
+font-size:20px;
 
 }
 
 
+
 .brand img{
 
-    width:50px;
+width:50px;
 
-    height:50px;
+height:50px;
 
 }
 
@@ -383,12 +731,47 @@ MOBILE
 
 .attendance-card{
 
-    width:90%;
 
-    padding:30px;
+width:90%;
+
+
+padding:30px;
+
 
 }
 
+
+
+.qr-card{
+
+
+width:95%;
+
+
+padding:30px;
+
+
+}
+
+
+
+.qr-card h2{
+
+
+font-size:25px;
+
+
+}
+
+
+
+#winner{
+
+
+font-size:35px;
+
+
+}
 
 
 }
