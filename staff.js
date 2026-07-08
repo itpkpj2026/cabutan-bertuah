@@ -3,6 +3,8 @@ const API =
 
 
 
+
+
 function loadAttendance(){
 
 
@@ -20,14 +22,63 @@ API+"?action=attendance"
 let html="";
 
 
+let jumlah=0;
+
+
 
 for(let i=1;i<data.length;i++){
+
+
+jumlah++;
+
+
+
+let status =
+data[i][3];
+
+
+
+let button="";
+
+
+
+if(status!="SAH"){
+
+
+button = `
+
+<button onclick="approve(${i+1})">
+
+✅ SAHKAN
+
+</button>
+
+`;
+
+
+}
+else{
+
+
+button="✔ SAH";
+
+
+}
+
+
+
 
 
 
 html += `
 
 <tr>
+
+
+<td>
+${i}
+</td>
+
 
 <td>
 ${data[i][1]}
@@ -40,39 +91,57 @@ ${data[i][2]}
 
 
 <td>
-${data[i][3]}
+${status}
 </td>
 
 
 <td>
-
-
-<button onclick="approve(${i+1})">
-
-SAHKAN
-
-</button>
-
-
+${button}
 </td>
+
 
 
 </tr>
 
 `;
 
+
+
 }
+
+
+
+document
+.getElementById("jumlah")
+.innerHTML =
+jumlah;
+
 
 
 document
 .getElementById("attendance")
-.innerHTML=html;
+.innerHTML =
+html;
+
+
+
+})
+
+
+.catch(error=>{
+
+
+console.log(error);
 
 
 });
 
 
+
 }
+
+
+
 
 
 
@@ -84,8 +153,10 @@ function approve(row){
 
 
 fetch(
+
 API+
 "?action=approve&row="+row
+
 )
 
 
@@ -95,7 +166,9 @@ API+
 .then(data=>{
 
 
-alert(data.status);
+alert(
+data.status
+);
 
 
 loadAttendance();
@@ -105,6 +178,8 @@ loadAttendance();
 
 
 }
+
+
 
 
 
