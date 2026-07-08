@@ -5,7 +5,7 @@
 <head>
 
 <title>
-Kehadiran Cabutan Bertuah PKPJ
+Pengesahan Kehadiran PKPJ
 </title>
 
 
@@ -51,12 +51,22 @@ CABUTAN BERTUAH PKPJ
 
 
 
-<div class="form-box">
+<div class="form-container">
+
+
+<div class="attendance-card">
 
 
 <h2>
 📋 Daftar Kehadiran
 </h2>
+
+
+<p>
+Sila isi maklumat anda
+</p>
+
+
 
 
 <label>
@@ -66,7 +76,12 @@ Nama Penuh
 
 <input 
 id="nama"
-placeholder="Masukkan nama">
+type="text"
+placeholder="Masukkan nama penuh">
+
+
+
+
 
 
 <label>
@@ -76,6 +91,7 @@ No Telefon
 
 <input 
 id="telefon"
+type="text"
 placeholder="Masukkan no telefon">
 
 
@@ -84,18 +100,18 @@ placeholder="Masukkan no telefon">
 
 <button onclick="submitAttendance()">
 
-HANTAR KEHADIRAN
+✅ HANTAR KEHADIRAN
 
 </button>
 
 
 
 
+<div id="result"></div>
 
-<div id="result">
+
 
 </div>
-
 
 
 </div>
