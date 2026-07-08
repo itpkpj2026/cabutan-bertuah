@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 
 <head>
@@ -7,9 +8,12 @@
 Cabutan Bertuah PKPJ
 </title>
 
+
 <link rel="stylesheet" href="index.css">
 
+
 </head>
+
 
 
 <body>
@@ -17,21 +21,28 @@ Cabutan Bertuah PKPJ
 
 <header>
 
-<div class="brand">
+
+<div class="header-brand">
+
 
 <img src="pkpj.png">
 
+
 <div>
-<h1>CABUTAN BERTUAH</h1>
-<p>PERBADANAN KEMAJUAN PERUMAHAN JOHOR</p>
-</div>
+
+<h1>
+CABUTAN BERTUAH
+</h1>
+
+<p>
+PERBADANAN KEMAJUAN PERUMAHAN JOHOR
+</p>
+
 
 </div>
 
 
-<button class="fullscreen" onclick="fullscreenMode()">
-⛶
-</button>
+</div>
 
 
 </header>
@@ -39,15 +50,20 @@ Cabutan Bertuah PKPJ
 
 
 
-<div class="container">
+
+<div class="dashboard">
+
 
 
 <!-- LEFT PANEL -->
 
-<div class="left">
+
+<div class="sidebar">
 
 
-<h2>MAKLUMAT CABUTAN</h2>
+<h2>
+MAKLUMAT CABUTAN
+</h2>
 
 
 
@@ -55,20 +71,15 @@ Cabutan Bertuah PKPJ
 
 👥
 
-<div>
-<label>
-JUMLAH PESERTA
-</label>
+<span id="total">
 
-<strong id="peserta">
 0
-</strong>
 
-<span>
-orang
 </span>
 
-</div>
+<br>
+
+JUMLAH PESERTA
 
 </div>
 
@@ -77,23 +88,17 @@ orang
 
 <div class="info">
 
-📱
+🧾
 
-<div>
+<span id="hadir">
 
-<label>
-KEHADIRAN
-</label>
-
-<strong id="hadir">
 0
-</strong>
 
-<span>
-orang
 </span>
 
-</div>
+<br>
+
+KEHADIRAN
 
 </div>
 
@@ -104,21 +109,15 @@ orang
 
 🎁
 
-<div>
-
-<label>
-JUMLAH HADIAH
-</label>
-
-<strong>
-20
-</strong>
-
 <span>
-hadiah
+
+20
+
 </span>
 
-</div>
+<br>
+
+JUMLAH HADIAH
 
 </div>
 
@@ -129,25 +128,25 @@ hadiah
 
 🏆
 
-<div>
+<span id="nombor">
 
-<label>
+20 / 20
+
+</span>
+
+<br>
+
 CABUTAN KE
-</label>
-
-<strong id="cabutan">
-1 / 20
-</strong>
-
-
-</div>
 
 </div>
 
 
 
-<button class="start"
-onclick="startDraw()">
+
+
+<button 
+class="btn-start"
+onclick="mulaCabutan()">
 
 ▶ MULA CABUTAN
 
@@ -155,40 +154,47 @@ onclick="startDraw()">
 
 
 
-<button class="reset"
-onclick="resetWinner()">
+
+<button 
+class="btn-reset"
+onclick="resetSystem()">
 
 ↻ RESET
 
 </button>
 
 
-</div>
-
-
-
-
-
-
-
-<!-- CENTER -->
-
-<div class="winner">
-
-
-<div id="countdown">
 
 </div>
+
+
+
+
+
+
+
+<!-- WINNER -->
+
+
+<div class="winner-box">
+
 
 
 <h2>
+
 ⭐ TAHNIAH! ⭐
+
 </h2>
 
 
+
 <p>
+
 PEMENANG
+
 </p>
+
+
 
 
 <div id="winner">
@@ -199,34 +205,42 @@ SEDIA UNTUK CABUTAN
 
 
 
-<div class="prize">
-
-🎁
-
-<span id="hadiah">
-SEDIA UNTUK CABUTAN
-</span>
-
-</div>
 
 
-</div>
+<div id="hadiah">
 
+🎁 HADIAH UTAMA
 
 </div>
 
 
 
 
+</div>
 
 
 
-<div class="table">
+</div>
+
+
+
+
+
+
+
+
+<!-- TABLE -->
+
+
+<div class="table-box">
 
 
 <h2>
+
 🏆 SENARAI PEMENANG
+
 </h2>
+
 
 
 <table>
@@ -240,17 +254,21 @@ SEDIA UNTUK CABUTAN
 BIL
 </th>
 
+
 <th>
 NAMA
 </th>
+
 
 <th>
 HADIAH
 </th>
 
+
 <th>
 MASA
 </th>
+
 
 </tr>
 
@@ -259,13 +277,13 @@ MASA
 
 
 
-<tbody id="list">
-
+<tbody id="senarai">
 
 </tbody>
 
 
 </table>
+
 
 
 </div>
@@ -274,23 +292,12 @@ MASA
 
 
 
-<audio id="drumroll">
-<source src="drumroll.mp3">
-</audio>
-
-
-<audio id="winnerSound">
-<source src="winner.mp3">
-</audio>
-
-
-<canvas id="confetti"></canvas>
-
 
 
 <script src="script.js"></script>
 
 
 </body>
+
 
 </html>
