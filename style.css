@@ -1,10 +1,59 @@
 body{
 
-background:#001b3a;
+margin:0;
 
 font-family:Arial;
 
+background:
+linear-gradient(
+135deg,
+#00152e,
+#004080
+);
+
 color:white;
+
+}
+
+
+
+.header{
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:30px;
+
+padding:25px;
+
+}
+
+
+
+.logo{
+
+width:130px;
+
+}
+
+
+
+.header h1{
+
+font-size:50px;
+
+color:#ffd700;
+
+margin:0;
+
+}
+
+
+
+.header h3{
 
 text-align:center;
 
@@ -12,49 +61,55 @@ text-align:center;
 
 
 
-.container{
+.dashboard{
 
-margin:80px auto;
+display:grid;
 
-width:700px;
+grid-template-columns:300px 1fr;
 
-padding:50px;
+gap:30px;
 
-background:#092c55;
+width:90%;
+
+margin:auto;
+
+}
+
+
+
+.panel{
+
+background:#06284d;
+
+padding:25px;
 
 border-radius:20px;
 
-box-shadow:0 0 30px gold;
-
 }
 
 
 
-h1{
-
-font-size:45px;
-
-color:#ffd700;
-
-}
-
-
-
-#winner{
+.box{
 
 background:white;
 
-color:#001b3a;
+color:#002b55;
 
-font-size:40px;
+margin:15px;
 
-font-weight:bold;
+padding:15px;
 
-padding:40px;
+border-radius:15px;
 
-margin:40px;
+font-size:20px;
 
-border-radius:20px;
+}
+
+
+
+.box b{
+
+font-size:35px;
 
 }
 
@@ -62,18 +117,115 @@ border-radius:20px;
 
 button{
 
-background:#007bff;
+width:100%;
 
-color:white;
+margin-top:15px;
 
-font-size:25px;
+padding:18px;
 
-padding:20px 50px;
+font-size:20px;
+
+background:#ffd700;
 
 border:none;
 
-border-radius:10px;
+border-radius:15px;
 
 cursor:pointer;
+
+}
+
+
+
+
+
+.winner{
+
+background:white;
+
+color:#002b55;
+
+border-radius:30px;
+
+padding:50px;
+
+text-align:center;
+
+box-shadow:
+0 0 30px gold;
+
+}
+
+
+
+.winner h2{
+
+font-size:50px;
+
+color:#d49b00;
+
+}
+
+
+
+#winnerName{
+
+font-size:55px;
+
+font-weight:bold;
+
+margin:50px;
+
+}
+
+
+
+.prize{
+
+font-size:30px;
+
+background:#ffd700;
+
+padding:20px;
+
+border-radius:20px;
+
+}
+
+
+
+.list{
+
+width:90%;
+
+margin:40px auto;
+
+background:white;
+
+color:#002b55;
+
+padding:20px;
+
+border-radius:20px;
+
+}
+
+
+
+table{
+
+width:100%;
+
+font-size:20px;
+
+}
+
+
+
+td,th{
+
+padding:15px;
+
+border-bottom:1px solid #ddd;
 
 }
