@@ -1,52 +1,52 @@
 /* =====================================
-   PKPJ CABUTAN BERTUAH
-   FULL STYLE CSS FINAL
+   PKPJ ATTENDANCE SYSTEM
+   FULL CSS
 ===================================== */
 
 
-
 *{
-
-box-sizing:border-box;
-
-font-family:Arial, Helvetica, sans-serif;
-
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
 }
-
 
 
 body{
 
-margin:0;
+    margin:0;
 
-background:#031d3a;
+    min-height:100vh;
 
-color:white;
+    background:
+    linear-gradient(
+        135deg,
+        #021b36,
+        #063d73
+    );
+
+    color:white;
 
 }
 
 
 
-
-
-/* =====================================
- HEADER
-===================================== */
+/* ==============================
+HEADER
+============================== */
 
 
 header{
 
-height:75px;
+    background:#052b55;
 
-background:#052b55;
+    height:90px;
 
-border-bottom:2px solid #d9ad00;
+    display:flex;
 
-display:flex;
+    justify-content:center;
 
-align-items:center;
+    align-items:center;
 
-justify-content:center;
+    border-bottom:3px solid #d9ad00;
 
 }
 
@@ -54,11 +54,11 @@ justify-content:center;
 
 .brand{
 
-display:flex;
+    display:flex;
 
-align-items:center;
+    align-items:center;
 
-gap:15px;
+    gap:20px;
 
 }
 
@@ -66,15 +66,15 @@ gap:15px;
 
 .brand img{
 
-width:55px;
+    width:65px;
 
-height:55px;
+    height:65px;
 
-object-fit:contain;
+    object-fit:contain;
 
-background:white;
+    background:white;
 
-border-radius:8px;
+    border-radius:10px;
 
 }
 
@@ -82,13 +82,13 @@ border-radius:8px;
 
 .brand h1{
 
-margin:0;
+    margin:0;
 
-font-size:28px;
+    color:#ffd000;
 
-color:#ffd000;
+    font-size:32px;
 
-letter-spacing:1px;
+    font-weight:800;
 
 }
 
@@ -96,11 +96,9 @@ letter-spacing:1px;
 
 .brand p{
 
-margin:3px 0 0;
+    margin:5px 0 0;
 
-font-size:12px;
-
-color:white;
+    font-size:14px;
 
 }
 
@@ -109,53 +107,25 @@ color:white;
 
 
 
-
-/* =====================================
- MAIN CABUTAN DISPLAY
-===================================== */
-
-
-.container{
-
-padding:20px;
-
-}
-
-
-
-.card{
-
-background:white;
-
-color:#052b55;
-
-border-radius:20px;
-
-padding:30px;
-
-box-shadow:
-0 0 25px rgba(255,215,0,0.5);
-
-}
-
-
-
-
-
-/* =====================================
- FORM KEHADIRAN
-===================================== */
+/* ==============================
+ATTENDANCE FORM
+============================== */
 
 
 .form-container{
 
-display:flex;
 
-justify-content:center;
+    min-height:80vh;
 
-align-items:center;
 
-min-height:75vh;
+    display:flex;
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
 
 }
 
@@ -164,78 +134,78 @@ min-height:75vh;
 .attendance-card{
 
 
-background:white;
+    width:430px;
 
 
-color:#052b55;
+    background:white;
 
 
-width:430px;
+    color:#052b55;
 
 
-padding:35px;
+    padding:40px;
 
 
-border-radius:20px;
+    border-radius:25px;
 
 
-box-shadow:
+    box-shadow:
 
-0 0 25px rgba(255,215,0,0.5);
+    0 0 30px rgba(255,215,0,0.5);
+
+
+    text-align:center;
 
 
 }
+
 
 
 
 .attendance-card h2{
 
 
-text-align:center;
+    color:#d9ad00;
 
 
-color:#d5a900;
+    font-size:30px;
 
 
-font-size:30px;
-
-
-margin-bottom:10px;
+    margin-bottom:10px;
 
 
 }
+
 
 
 
 .attendance-card p{
 
 
-text-align:center;
+    color:#555;
 
 
-color:#555;
-
-
-margin-bottom:25px;
+    font-size:16px;
 
 
 }
 
 
 
+
 .attendance-card label{
 
 
-display:block;
+    display:block;
 
 
-font-weight:bold;
+    text-align:left;
 
 
-margin-top:18px;
+    margin-top:20px;
 
 
-color:#052b55;
+    font-weight:bold;
 
 
 }
@@ -246,38 +216,41 @@ color:#052b55;
 .attendance-card input{
 
 
-width:100%;
+    width:100%;
 
 
-padding:14px;
+    padding:15px;
 
 
-margin-top:8px;
+    margin-top:8px;
 
 
-border-radius:10px;
+    border-radius:10px;
 
 
-border:1px solid #ccc;
+    border:1px solid #ccc;
 
 
-font-size:16px;
-
-
-outline:none;
+    font-size:16px;
 
 
 }
+
+
 
 
 
 .attendance-card input:focus{
 
 
-border:2px solid #d9ad00;
+    outline:none;
+
+
+    border:2px solid #d9ad00;
 
 
 }
+
 
 
 
@@ -287,68 +260,45 @@ border:2px solid #d9ad00;
 .attendance-card button{
 
 
-width:100%;
+    width:100%;
 
 
-padding:15px;
+    margin-top:30px;
 
 
-margin-top:25px;
+    padding:16px;
 
 
-border:none;
+    border:none;
 
 
-border-radius:12px;
+    border-radius:12px;
 
 
-background:#e5b900;
+    background:#d9ad00;
 
 
-color:#052b55;
+    color:#052b55;
 
 
-font-size:16px;
+    font-size:17px;
 
 
-font-weight:bold;
+    font-weight:bold;
 
 
-cursor:pointer;
+    cursor:pointer;
 
 
 }
+
 
 
 
 .attendance-card button:hover{
 
 
-background:#ffd900;
-
-
-}
-
-
-
-
-
-#result{
-
-
-margin-top:20px;
-
-
-text-align:center;
-
-
-font-size:18px;
-
-
-color:#008000;
-
-
-font-weight:bold;
+    background:#ffd900;
 
 
 }
@@ -359,84 +309,44 @@ font-weight:bold;
 
 
 
-/* =====================================
- STAFF TABLE
-===================================== */
+/* ==============================
+SUCCESS MESSAGE
+============================== */
 
 
-
-.table{
-
-
-background:white;
+.success-icon{
 
 
-color:#052b55;
-
-
-margin:30px;
-
-
-padding:20px;
-
-
-border-radius:15px;
+    font-size:60px;
 
 
 }
 
 
 
-.table h2{
+.success-title{
 
 
-color:#052b55;
+    color:#008000;
 
 
-}
+    font-size:28px;
 
 
-
-
-table{
-
-
-width:100%;
-
-
-border-collapse:collapse;
+    font-weight:bold;
 
 
 }
 
 
 
-th{
+.success-text{
 
 
-background:#052b55;
+    color:#052b55;
 
 
-color:white;
-
-
-padding:12px;
-
-
-}
-
-
-
-td{
-
-
-padding:12px;
-
-
-text-align:center;
-
-
-border-bottom:1px solid #ddd;
+    font-size:20px;
 
 
 }
@@ -445,168 +355,37 @@ border-bottom:1px solid #ddd;
 
 
 
-button{
-
-
-cursor:pointer;
-
-
-}
-
-
-
-
-
-
-
-/* =====================================
- BUTTON
-===================================== */
-
-
-.action-btn{
-
-
-background:#087cff;
-
-
-color:white;
-
-
-border:none;
-
-
-padding:10px 20px;
-
-
-border-radius:8px;
-
-
-font-weight:bold;
-
-
-}
-
-
-
-.reset-btn{
-
-
-background:#d62828;
-
-
-color:white;
-
-
-border:none;
-
-
-padding:10px 20px;
-
-
-border-radius:8px;
-
-
-}
-
-
-
-
-
-
-/* =====================================
- WINNER DISPLAY
-===================================== */
-
-
-#winner{
-
-
-font-size:45px;
-
-
-font-weight:bold;
-
-
-color:#052b55;
-
-
-text-align:center;
-
-
-}
-
-
-
-#hadiah{
-
-
-background:#e8b900;
-
-
-color:#052b55;
-
-
-padding:15px;
-
-
-border-radius:10px;
-
-
-font-size:22px;
-
-
-font-weight:bold;
-
-
-text-align:center;
-
-
-}
-
-
-
-
-
-
-
-/* =====================================
- MOBILE
-===================================== */
+/* ==============================
+MOBILE
+============================== */
 
 
 @media(max-width:600px){
 
 
 
-.attendance-card{
-
-
-width:90%;
-
-
-}
-
-
-
 .brand h1{
 
+    font-size:22px;
 
-font-size:20px;
+}
 
+
+.brand img{
+
+    width:50px;
+
+    height:50px;
 
 }
 
 
 
-.table{
+.attendance-card{
 
+    width:90%;
 
-margin:10px;
-
-
-overflow-x:auto;
-
+    padding:30px;
 
 }
 
