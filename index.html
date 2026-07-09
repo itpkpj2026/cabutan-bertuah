@@ -1,714 +1,577 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-
-<title>
-Cabutan Bertuah PKPJ
-</title>
-
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-<style>
-
-
-body{
-
-margin:0;
-
-background:#021b36;
-
-font-family:Arial, sans-serif;
-
-color:white;
-
-text-align:center;
-
-}
-
-
-
-header{
-
-padding:20px;
-
-background:#052b55;
-
-border-bottom:3px solid gold;
-
-}
-
-
-
-.logo{
-
-width:70px;
-
-height:70px;
-
-object-fit:contain;
-
-background:white;
-
-border-radius:10px;
-
-}
-
-
-
-h1{
-
-color:#ffd000;
-
-font-size:40px;
-
-margin:10px;
-
-}
-
-
-
-h2{
-
-font-size:28px;
-
-}
-
-
-
-.container{
-
-
-display:flex;
-
-flex-direction:column;
-
-align-items:center;
-
-padding:20px;
-
-}
-
-
-
-canvas{
-
-background:white;
-
-border-radius:50%;
-
-margin-top:20px;
-
-box-shadow:
-0 0 30px gold;
-
-
-}
-
-
-
-button{
-
-
-margin:15px;
-
-padding:18px 50px;
-
-font-size:22px;
-
-font-weight:bold;
-
-border:none;
-
-border-radius:15px;
-
-cursor:pointer;
-
-
-}
-
-
-
-.spin{
-
-
-background:#ffd000;
-
-color:#052b55;
-
-
-}
-
-
-
-.reset{
-
-
-background:#d62828;
-
-color:white;
-
-
-}
-
-
-
-#winner{
-
-
-margin-top:20px;
-
-font-size:45px;
-
-font-weight:bold;
-
-color:#ffd000;
-
-}
-
-
-
-#hadiah{
-
-
-font-size:25px;
-
-background:white;
-
-color:#052b55;
-
-padding:15px;
-
-border-radius:15px;
-
-margin-top:20px;
-
-}
-
-
-
-.info{
-
-
-font-size:20px;
-
-}
-
-
-
-</style>
-
-
+  <base target="_top">
+  <meta charset="UTF-8">
+  <title>Sistem Cabutan Bertuah PKPJ</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: radial-gradient(circle at top, #073b88, #031634 70%);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .header {
+      padding: 25px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0,0,0,0.25);
+      border-bottom: 2px solid #d8a631;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo-box {
+      width: 65px;
+      height: 65px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #d71920, #0b3d91);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 24px;
+      border: 2px solid white;
+    }
+
+    .title h1 {
+      margin: 0;
+      font-size: 34px;
+      letter-spacing: 1px;
+    }
+
+    .title p {
+      margin: 5px 0 0;
+      color: #ffca3a;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .clock {
+      background: #061a3d;
+      border: 1px solid #315b9b;
+      padding: 15px 25px;
+      border-radius: 12px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .container {
+      padding: 30px 40px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, #ffffff, #e9edf5);
+      color: #061a3d;
+      border-radius: 15px;
+      padding: 22px;
+      text-align: center;
+      border: 3px solid #d8a631;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+
+    .card .label {
+      font-size: 13px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .card .number {
+      font-size: 42px;
+      font-weight: bold;
+      margin-top: 8px;
+    }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1.4fr 1fr;
+      gap: 25px;
+    }
+
+    .panel {
+      background: rgba(2, 20, 55, 0.85);
+      border: 1px solid rgba(216, 166, 49, 0.8);
+      border-radius: 15px;
+      padding: 22px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.35);
+    }
+
+    .panel h3 {
+      margin-top: 0;
+      color: #ffca3a;
+      text-transform: uppercase;
+      font-size: 18px;
+    }
+
+    .prize-box {
+      text-align: center;
+      padding: 30px 10px;
+    }
+
+    .prize-box .small {
+      font-size: 16px;
+      color: #ffffff;
+      opacity: 0.9;
+    }
+
+    .prize-box .prize {
+      font-size: 36px;
+      font-weight: bold;
+      color: #ffca3a;
+      margin: 15px 0;
+    }
+
+    .draw-area {
+      text-align: center;
+    }
+
+    .draw-title {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #ffca3a;
+      font-weight: bold;
+    }
+
+    .name-display {
+      min-height: 140px;
+      background: linear-gradient(180deg, #f5f7fb, #d8dee9);
+      color: #061a3d;
+      border-radius: 16px;
+      border: 4px solid #d8a631;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 0 20px rgba(0,0,0,0.25);
+      margin-bottom: 25px;
+    }
+
+    .name-display .no {
+      font-size: 28px;
+      color: #0b3d91;
+      font-weight: bold;
+    }
+
+    .name-display .name {
+      font-size: 30px;
+      font-weight: bold;
+      margin-top: 8px;
+    }
+
+    .name-display .dept {
+      font-size: 18px;
+      margin-top: 6px;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 12px;
+      padding: 16px 28px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      margin: 6px;
+      transition: 0.2s;
+    }
+
+    .btn:hover {
+      transform: scale(1.03);
+    }
+
+    .btn-gold {
+      background: linear-gradient(180deg, #ffe08a, #d8a631);
+      color: #031634;
+    }
+
+    .btn-blue {
+      background: linear-gradient(180deg, #1b63c8, #073b88);
+      color: white;
+    }
+
+    .btn-green {
+      background: linear-gradient(180deg, #2ecc71, #159447);
+      color: white;
+    }
+
+    .btn-red {
+      background: linear-gradient(180deg, #e74c3c, #a32017);
+      color: white;
+    }
+
+    select {
+      width: 100%;
+      padding: 14px;
+      border-radius: 10px;
+      border: 2px solid #d8a631;
+      margin-bottom: 15px;
+      font-size: 16px;
+      background: white;
+      color: #031634;
+      font-weight: bold;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      color: white;
+      font-size: 14px;
+    }
+
+    th, td {
+      padding: 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      text-align: left;
+    }
+
+    th {
+      color: #ffca3a;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .winner-screen {
+      margin-top: 30px;
+      background: radial-gradient(circle at top, #0b3d91, #031634 70%);
+      border: 2px solid #d8a631;
+      border-radius: 20px;
+      padding: 35px;
+      text-align: center;
+      display: none;
+    }
+
+    .winner-screen h1 {
+      font-size: 56px;
+      color: #ffca3a;
+      margin: 0 0 20px;
+    }
+
+    .winner-name {
+      font-size: 42px;
+      font-weight: bold;
+      color: #ffca3a;
+      margin: 15px 0;
+    }
+
+    .winner-info {
+      font-size: 22px;
+      margin: 8px 0;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      color: rgba(255,255,255,0.7);
+      font-size: 13px;
+    }
+
+    @media screen and (max-width: 1000px) {
+      .cards, .main-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .title h1 {
+        font-size: 25px;
+      }
+    }
+  </style>
 </head>
 
-
-
 <body>
-
-
-
-<header>
-
-
-<img src="pkpj.png" class="logo">
-
-
-<h1>
-CABUTAN BERTUAH PKPJ
-</h1>
-
-
-<h2>
-🎡 SPIN WHEEL
-</h2>
-
-
-</header>
-
-
-
-
-
-<div class="container">
-
-
-
-<div class="info">
-
-Peserta Layak:
-
-<span id="jumlah">
-0
-</span>
-
-orang
-
-</div>
-
-
-
-
-<canvas id="wheel" width="600" height="600"></canvas>
-
-
-
-
-<button class="spin" onclick="spin()">
-
-🎡 MULA CABUTAN
-
-</button>
-
-
-
-
-<button class="reset" onclick="resetWheel()">
-
-RESET
-
-</button>
-
-
-
-
-
-<div id="winner">
-
-SEDIA UNTUK CABUTAN
-
-</div>
-
-
-
-
-<div id="hadiah">
-
-🎁 HADIAH
-
-</div>
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<script>
-
-
-// ==========================
-// URL APPS SCRIPT
-// ==========================
-
-
-const API =
-
-"https://script.google.com/macros/s/AKfycbzLfWVo4YyhaIQbaFmCEdB7u3T4PYR_kO27BXaWeSSN6NWSTz9zM0FgArHICHDBjbo/exec";
-
-
-
-
-
-
-let names=[];
-
-
-let angle=0;
-
-
-let spinning=false;
-
-
-
-
-
-const canvas =
-
-document.getElementById("wheel");
-
-
-
-const ctx =
-canvas.getContext("2d");
-
-
-
-
-
-// ==========================
-// LOAD NAMA
-// ==========================
-
-
-function loadNames(){
-
-
-fetch(
-API+"?action=wheel"
-)
-
-
-.then(r=>r.json())
-
-
-.then(data=>{
-
-
-names=data;
-
-
-document
-.getElementById("jumlah")
-.innerHTML=
-names.length;
-
-
-
-drawWheel();
-
-
-});
-
-
-}
-
-
-
-
-
-
-
-// ==========================
-// DRAW WHEEL
-// ==========================
-
-
-function drawWheel(){
-
-
-
-let size =
-names.length;
-
-
-
-if(size==0)
-return;
-
-
-
-
-let arc =
-Math.PI*2/size;
-
-
-
-
-ctx.clearRect(
-0,
-0,
-600,
-600
-);
-
-
-
-for(let i=0;i<size;i++){
-
-
-
-ctx.beginPath();
-
-
-
-ctx.moveTo(
-300,
-300
-);
-
-
-
-ctx.arc(
-
-300,
-
-300,
-
-300,
-
-angle+i*arc,
-
-angle+(i+1)*arc
-
-);
-
-
-
-ctx.fillStyle =
-i%2==0
-?
-"#ffd000"
-:
-"#052b55";
-
-
-
-ctx.fill();
-
-
-
-ctx.save();
-
-
-
-ctx.translate(
-300,
-300
-);
-
-
-
-ctx.rotate(
-angle+i*arc+arc/2
-);
-
-
-
-ctx.fillStyle =
-i%2==0
-?
-"#052b55"
-:
-"white";
-
-
-
-ctx.font="18px Arial";
-
-
-
-ctx.fillText(
-
-names[i].substring(0,15),
-
-80,
-
-0
-
-);
-
-
-
-ctx.restore();
-
-
-
-}
-
-
-
-}
-
-
-
-
-
-// ==========================
-// SPIN
-// ==========================
-
-
-function spin(){
-
-
-
-if(spinning)
-return;
-
-
-
-if(names.length==0){
-
-alert(
-"Tiada peserta"
-);
-
-return;
-
-}
-
-
-
-spinning=true;
-
-
-
-let target =
-Math.random()*3000+3000;
-
-
-
-let start =
-Date.now();
-
-
-
-let duration =
-4000;
-
-
-
-function animate(){
-
-
-
-let now =
-Date.now();
-
-
-
-let progress =
-(now-start)/duration;
-
-
-
-if(progress<1){
-
-
-angle +=
-
-(target*(progress))/80;
-
-
-
-drawWheel();
-
-
-requestAnimationFrame(animate);
-
-
-
-}
-
-else{
-
-
-
-spinning=false;
-
-
-selectWinner();
-
-
-
-}
-
-
-
-}
-
-
-
-animate();
-
-
-
-}
-
-
-
-
-
-
-
-// ==========================
-// WINNER
-// ==========================
-
-
-function selectWinner(){
-
-
-
-let winner =
-
-names[
-Math.floor(
-Math.random()*names.length
-)
-];
-
-
-
-document
-.getElementById("winner")
-.innerHTML=
-
-"🎉 "+winner;
-
-
-
-document
-.getElementById("hadiah")
-.innerHTML=
-
-"🎁 SILA RUJUK HADIAH CABUTAN";
-
-
-
-}
-
-
-
-
-
-
-
-function resetWheel(){
-
-
-
-document
-.getElementById("winner")
-.innerHTML=
-
-"SEDIA UNTUK CABUTAN";
-
-
-
-document
-.getElementById("hadiah")
-.innerHTML=
-
-"🎁 HADIAH";
-
-
-
-}
-
-
-
-
-
-
-loadNames();
-
-
-
-</script>
-
-
-
+  <div class="header">
+    <div class="logo-area">
+      <div class="logo-box">PKPJ</div>
+      <div class="title">
+        <h1>CABUTAN BERTUAH</h1>
+        <p>HARI KELUARGA PKPJ JOHOR 2026</p>
+      </div>
+    </div>
+
+    <div class="clock">
+      <div id="timeNow">--:--:--</div>
+      <div>25 Mei 2026</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="cards">
+      <div class="card">
+        <div class="label">Jumlah Peserta</div>
+        <div class="number" id="jumlahPeserta">0</div>
+        <div>Orang</div>
+      </div>
+
+      <div class="card">
+        <div class="label">Sudah Menang</div>
+        <div class="number" id="sudahMenang">0</div>
+        <div>Orang</div>
+      </div>
+
+      <div class="card">
+        <div class="label">Baki Peserta</div>
+        <div class="number" id="bakiPeserta">0</div>
+        <div>Orang</div>
+      </div>
+    </div>
+
+    <div class="main-grid">
+      <div class="panel">
+        <h3>Senarai Pemenang</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Nama</th>
+              <th>Hadiah</th>
+            </tr>
+          </thead>
+          <tbody id="winnerList">
+            <tr>
+              <td colspan="3">Belum ada pemenang</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="panel draw-area">
+        <div class="draw-title">PAPARAN CABUTAN</div>
+
+        <div class="name-display">
+          <div class="no" id="displayNo">---</div>
+          <div class="name" id="displayName">Sedia Untuk Cabutan</div>
+          <div class="dept" id="displayDept">Pilih hadiah dan mula cabutan</div>
+        </div>
+
+        <select id="hadiahSelect">
+          <option value="">Pilih Hadiah</option>
+        </select>
+
+        <button class="btn btn-gold" onclick="mulaCabutan()">🎁 MULA CABUTAN</button>
+        <button class="btn btn-green" onclick="sahkanPemenang()">✅ SAHKAN PEMENANG</button>
+        <button class="btn btn-blue" onclick="cabutSemula()">🔄 CABUT SEMULA</button>
+      </div>
+
+      <div class="panel prize-box">
+        <div class="small">HADIAH SEMASA</div>
+        <div class="prize" id="hadiahSemasa">Belum Dipilih</div>
+        <div id="kategoriSemasa">-</div>
+
+        <hr style="border-color: rgba(255,255,255,0.15); margin: 25px 0;">
+
+        <button class="btn btn-red" onclick="resetSistem()">RESET SISTEM</button>
+      </div>
+    </div>
+
+    <div class="winner-screen" id="winnerScreen">
+      <h1>TAHNIAH!</h1>
+      <div class="winner-name" id="winnerNameBig">NAMA PEMENANG</div>
+      <div class="winner-info" id="winnerDeptBig">BAHAGIAN</div>
+      <div class="winner-info" id="winnerPrizeBig">HADIAH</div>
+      <div class="winner-info" id="winnerNoBig">NO PESERTA</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    © 2026 Perbadanan Kemajuan Perumahan Johor
+  </div>
+
+  <script>
+    let dashboardData = {};
+    let selectedWinner = null;
+    let selectedPrize = null;
+    let rollingInterval = null;
+
+    function updateClock() {
+      const now = new Date();
+      document.getElementById("timeNow").innerText = now.toLocaleTimeString("en-MY");
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    function loadDashboard() {
+      google.script.run
+        .withSuccessHandler(function(data) {
+          dashboardData = data;
+
+          document.getElementById("jumlahPeserta").innerText = data.jumlahPeserta;
+          document.getElementById("sudahMenang").innerText = data.sudahMenang;
+          document.getElementById("bakiPeserta").innerText = data.bakiPeserta;
+
+          loadHadiah(data.hadiah);
+          loadPemenang(data.pemenang);
+        })
+        .getDashboardData();
+    }
+
+    function loadHadiah(hadiah) {
+      const select = document.getElementById("hadiahSelect");
+      select.innerHTML = '<option value="">Pilih Hadiah</option>';
+
+      hadiah.forEach(h => {
+        if (h.Status === "Aktif") {
+          const option = document.createElement("option");
+          option.value = h.IDHadiah;
+          option.textContent = h.NamaHadiah + " - " + h.Kategori;
+          select.appendChild(option);
+        }
+      });
+    }
+
+    function loadPemenang(pemenang) {
+      const tbody = document.getElementById("winnerList");
+      tbody.innerHTML = "";
+
+      if (pemenang.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="3">Belum ada pemenang</td></tr>';
+        return;
+      }
+
+      pemenang.slice(-8).reverse().forEach((p, index) => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${index + 1}</td>
+          <td>${p.Nama}</td>
+          <td>${p.Hadiah}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function mulaCabutan() {
+      const idHadiah = document.getElementById("hadiahSelect").value;
+
+      if (!idHadiah) {
+        alert("Sila pilih hadiah dahulu.");
+        return;
+      }
+
+      document.getElementById("winnerScreen").style.display = "none";
+
+      selectedPrize = dashboardData.hadiah.find(h => String(h.IDHadiah) === String(idHadiah));
+
+      document.getElementById("hadiahSemasa").innerText = selectedPrize.NamaHadiah;
+      document.getElementById("kategoriSemasa").innerText = selectedPrize.Kategori;
+
+      const pesertaLayak = dashboardData.peserta.filter(p => {
+        const sudahMenang = dashboardData.pemenang.some(w => String(w.NoPeserta) === String(p.NoPeserta));
+        return p.Status === "Layak" && !sudahMenang;
+      });
+
+      if (pesertaLayak.length === 0) {
+        alert("Tiada peserta layak.");
+        return;
+      }
+
+      let count = 0;
+
+      rollingInterval = setInterval(() => {
+        const randomPeserta = pesertaLayak[Math.floor(Math.random() * pesertaLayak.length)];
+
+        document.getElementById("displayNo").innerText = randomPeserta.NoPeserta;
+        document.getElementById("displayName").innerText = randomPeserta.Nama;
+        document.getElementById("displayDept").innerText = randomPeserta.Bahagian;
+
+        count++;
+
+        if (count > 35) {
+          clearInterval(rollingInterval);
+
+          google.script.run
+            .withSuccessHandler(function(result) {
+              if (!result.success) {
+                alert(result.message);
+                return;
+              }
+
+              selectedWinner = result.peserta;
+              selectedPrize = result.hadiah;
+
+              document.getElementById("displayNo").innerText = selectedWinner.NoPeserta;
+              document.getElementById("displayName").innerText = selectedWinner.Nama;
+              document.getElementById("displayDept").innerText = selectedWinner.Bahagian;
+
+              showWinnerScreen();
+            })
+            .cabutPemenang(idHadiah);
+        }
+      }, 80);
+    }
+
+    function showWinnerScreen() {
+      document.getElementById("winnerScreen").style.display = "block";
+      document.getElementById("winnerNameBig").innerText = selectedWinner.Nama;
+      document.getElementById("winnerDeptBig").innerText = selectedWinner.Bahagian;
+      document.getElementById("winnerPrizeBig").innerText = "HADIAH: " + selectedPrize.NamaHadiah;
+      document.getElementById("winnerNoBig").innerText = "NO PESERTA: " + selectedWinner.NoPeserta;
+    }
+
+    function sahkanPemenang() {
+      if (!selectedWinner || !selectedPrize) {
+        alert("Tiada pemenang untuk disahkan.");
+        return;
+      }
+
+      const data = {
+        NoPeserta: selectedWinner.NoPeserta,
+        Nama: selectedWinner.Nama,
+        Bahagian: selectedWinner.Bahagian,
+        NamaHadiah: selectedPrize.NamaHadiah,
+        Kategori: selectedPrize.Kategori
+      };
+
+      google.script.run
+        .withSuccessHandler(function(result) {
+          alert(result.message);
+          selectedWinner = null;
+          selectedPrize = null;
+          loadDashboard();
+
+          document.getElementById("displayNo").innerText = "---";
+          document.getElementById("displayName").innerText = "Sedia Untuk Cabutan Seterusnya";
+          document.getElementById("displayDept").innerText = "Pilih hadiah dan mula cabutan";
+        })
+        .sahkanPemenang(data);
+    }
+
+    function cabutSemula() {
+      selectedWinner = null;
+      document.getElementById("winnerScreen").style.display = "none";
+      document.getElementById("displayNo").innerText = "---";
+      document.getElementById("displayName").innerText = "Sedia Untuk Cabutan Semula";
+      document.getElementById("displayDept").innerText = "Tekan Mula Cabutan";
+    }
+
+    function resetSistem() {
+      const confirmReset = confirm("Adakah anda pasti mahu reset semua pemenang?");
+      if (!confirmReset) return;
+
+      const secondConfirm = confirm("Pengesahan kedua: Semua rekod pemenang akan dipadam.");
+      if (!secondConfirm) return;
+
+      google.script.run
+        .withSuccessHandler(function(result) {
+          alert(result.message);
+          loadDashboard();
+        })
+        .resetPemenang();
+    }
+
+    loadDashboard();
+  </script>
 </body>
-
 </html>
