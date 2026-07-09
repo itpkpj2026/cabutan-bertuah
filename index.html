@@ -6,335 +6,615 @@
   <title>Sistem Cabutan Bertuah PKPJ</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: radial-gradient(circle at top, #073b88, #031634 70%);
-      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(16, 91, 190, 0.7), transparent 28%),
+        radial-gradient(circle at top right, rgba(255, 199, 65, 0.22), transparent 25%),
+        linear-gradient(135deg, #020b20 0%, #031b45 45%, #020b20 100%);
+      color: #ffffff;
+      min-height: 100vh;
       overflow-x: hidden;
     }
 
-    .header {
-      padding: 25px 40px;
+    .gold {
+      color: #ffcc45;
+    }
+
+    .topbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(0,0,0,0.25);
-      border-bottom: 2px solid #d8a631;
+      padding: 22px 34px;
+      border-bottom: 2px solid rgba(255, 204, 69, 0.6);
+      background: rgba(0, 0, 0, 0.25);
     }
 
-    .logo-area {
+    .brand {
       display: flex;
       align-items: center;
-      gap: 15px;
+      gap: 16px;
     }
 
-    .logo-box {
-      width: 65px;
-      height: 65px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #d71920, #0b3d91);
+    .logo {
+      width: 72px;
+      height: 72px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #e11d2e, #064fb0);
+      border: 3px solid #ffffff;
       display: flex;
-      align-items: center;
       justify-content: center;
-      font-weight: bold;
-      font-size: 24px;
-      border: 2px solid white;
+      align-items: center;
+      font-weight: 900;
+      font-size: 22px;
+      box-shadow: 0 0 22px rgba(255,255,255,0.2);
     }
 
-    .title h1 {
+    .brand-text h1 {
       margin: 0;
       font-size: 34px;
       letter-spacing: 1px;
+      line-height: 1.1;
     }
 
-    .title p {
-      margin: 5px 0 0;
-      color: #ffca3a;
+    .brand-text h2 {
+      margin: 6px 0 0;
       font-size: 20px;
-      font-weight: bold;
+      color: #ffcc45;
+      letter-spacing: 0.5px;
     }
 
-    .clock {
-      background: #061a3d;
-      border: 1px solid #315b9b;
-      padding: 15px 25px;
-      border-radius: 12px;
+    .brand-text p {
+      margin: 8px 0 0;
+      font-style: italic;
+      opacity: 0.9;
+    }
+
+    .clock-box {
+      min-width: 170px;
+      padding: 14px 18px;
+      border-radius: 14px;
+      background: rgba(1, 17, 48, 0.92);
+      border: 1px solid rgba(255,255,255,0.15);
       text-align: center;
-      font-weight: bold;
+      box-shadow: 0 0 20px rgba(0,0,0,0.35);
     }
 
-    .container {
-      padding: 30px 40px;
+    .clock-box .time {
+      font-size: 22px;
+      font-weight: 800;
     }
 
-    .cards {
+    .clock-box .date {
+      font-size: 12px;
+      margin-top: 5px;
+      opacity: 0.85;
+    }
+
+    .page {
+      padding: 26px 34px 18px;
+    }
+
+    .stats {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-      margin-bottom: 30px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-bottom: 22px;
     }
 
-    .card {
-      background: linear-gradient(180deg, #ffffff, #e9edf5);
-      color: #061a3d;
-      border-radius: 15px;
-      padding: 22px;
-      text-align: center;
-      border: 3px solid #d8a631;
-      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    .stat-card {
+      border-radius: 16px;
+      padding: 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(231,235,244,0.98));
+      color: #06143b;
+      border: 2px solid rgba(255, 204, 69, 0.95);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+      display: flex;
+      align-items: center;
+      gap: 14px;
     }
 
-    .card .label {
-      font-size: 13px;
-      font-weight: bold;
+    .stat-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, #0e61d4, #07347a);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 25px;
+      box-shadow: inset 0 0 12px rgba(255,255,255,0.3);
+    }
+
+    .stat-label {
+      font-size: 12px;
+      font-weight: 800;
       text-transform: uppercase;
+      opacity: 0.8;
     }
 
-    .card .number {
-      font-size: 42px;
-      font-weight: bold;
-      margin-top: 8px;
+    .stat-number {
+      font-size: 34px;
+      font-weight: 900;
+      line-height: 1;
+      margin-top: 5px;
     }
 
     .main-grid {
       display: grid;
-      grid-template-columns: 1.1fr 1.4fr 1fr;
-      gap: 25px;
+      grid-template-columns: 310px 1fr 350px;
+      gap: 20px;
     }
 
     .panel {
-      background: rgba(2, 20, 55, 0.85);
-      border: 1px solid rgba(216, 166, 49, 0.8);
-      border-radius: 15px;
-      padding: 22px;
-      box-shadow: 0 0 25px rgba(0,0,0,0.35);
+      background: rgba(2, 18, 52, 0.88);
+      border: 1px solid rgba(255, 204, 69, 0.6);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 14px 35px rgba(0,0,0,0.28);
+      backdrop-filter: blur(6px);
     }
 
-    .panel h3 {
-      margin-top: 0;
-      color: #ffca3a;
+    .panel-title {
+      margin: 0 0 14px;
+      font-size: 16px;
       text-transform: uppercase;
-      font-size: 18px;
-    }
-
-    .prize-box {
-      text-align: center;
-      padding: 30px 10px;
-    }
-
-    .prize-box .small {
-      font-size: 16px;
       color: #ffffff;
-      opacity: 0.9;
-    }
-
-    .prize-box .prize {
-      font-size: 36px;
-      font-weight: bold;
-      color: #ffca3a;
-      margin: 15px 0;
-    }
-
-    .draw-area {
-      text-align: center;
-    }
-
-    .draw-title {
-      font-size: 20px;
-      margin-bottom: 20px;
-      color: #ffca3a;
-      font-weight: bold;
-    }
-
-    .name-display {
-      min-height: 140px;
-      background: linear-gradient(180deg, #f5f7fb, #d8dee9);
-      color: #061a3d;
-      border-radius: 16px;
-      border: 4px solid #d8a631;
+      letter-spacing: 0.6px;
       display: flex;
-      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      box-shadow: inset 0 0 20px rgba(0,0,0,0.25);
-      margin-bottom: 25px;
+      justify-content: space-between;
     }
 
-    .name-display .no {
-      font-size: 28px;
-      color: #0b3d91;
-      font-weight: bold;
-    }
-
-    .name-display .name {
-      font-size: 30px;
-      font-weight: bold;
-      margin-top: 8px;
-    }
-
-    .name-display .dept {
-      font-size: 18px;
-      margin-top: 6px;
-    }
-
-    .btn {
-      border: none;
-      border-radius: 12px;
-      padding: 16px 28px;
-      font-size: 18px;
-      font-weight: bold;
-      cursor: pointer;
-      margin: 6px;
-      transition: 0.2s;
-    }
-
-    .btn:hover {
-      transform: scale(1.03);
-    }
-
-    .btn-gold {
-      background: linear-gradient(180deg, #ffe08a, #d8a631);
-      color: #031634;
-    }
-
-    .btn-blue {
-      background: linear-gradient(180deg, #1b63c8, #073b88);
-      color: white;
-    }
-
-    .btn-green {
-      background: linear-gradient(180deg, #2ecc71, #159447);
-      color: white;
-    }
-
-    .btn-red {
-      background: linear-gradient(180deg, #e74c3c, #a32017);
-      color: white;
-    }
-
-    select {
-      width: 100%;
-      padding: 14px;
-      border-radius: 10px;
-      border: 2px solid #d8a631;
-      margin-bottom: 15px;
-      font-size: 16px;
-      background: white;
-      color: #031634;
-      font-weight: bold;
+    .pill {
+      display: inline-block;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(255, 204, 69, 0.16);
+      border: 1px solid rgba(255, 204, 69, 0.5);
+      color: #ffcc45;
+      font-weight: 800;
+      font-size: 12px;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      color: white;
-      font-size: 14px;
+      font-size: 13px;
     }
 
     th, td {
-      padding: 10px;
-      border-bottom: 1px solid rgba(255,255,255,0.15);
+      padding: 10px 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
       text-align: left;
     }
 
     th {
-      color: #ffca3a;
-      font-size: 12px;
+      color: #ffcc45;
+      font-size: 11px;
       text-transform: uppercase;
     }
 
-    .winner-screen {
-      margin-top: 30px;
-      background: radial-gradient(circle at top, #0b3d91, #031634 70%);
-      border: 2px solid #d8a631;
-      border-radius: 20px;
-      padding: 35px;
+    td {
+      color: rgba(255,255,255,0.92);
+    }
+
+    .draw-panel {
+      min-height: 520px;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .draw-panel:before {
+      content: "";
+      position: absolute;
+      inset: -50%;
+      background:
+        radial-gradient(circle, rgba(255, 204, 69, 0.13) 0 2px, transparent 3px);
+      background-size: 58px 58px;
+      opacity: 0.35;
+      pointer-events: none;
+      animation: floatBg 18s linear infinite;
+    }
+
+    @keyframes floatBg {
+      from { transform: translateY(0); }
+      to { transform: translateY(80px); }
+    }
+
+    .draw-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .status-text {
+      font-size: 18px;
+      font-weight: 900;
+      margin-bottom: 14px;
+      color: #ffcc45;
+      text-transform: uppercase;
+    }
+
+    .screen {
+      background: linear-gradient(180deg, #f7f9fd, #d7deec);
+      color: #06143b;
+      border-radius: 22px;
+      border: 4px solid #ffcc45;
+      min-height: 190px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 22px;
+      margin: 18px 0 18px;
+      box-shadow:
+        inset 0 0 30px rgba(0,0,0,0.22),
+        0 12px 35px rgba(0,0,0,0.45);
+    }
+
+    .screen.rolling {
+      animation: pulseGold 0.45s infinite alternate;
+    }
+
+    @keyframes pulseGold {
+      from {
+        box-shadow:
+          inset 0 0 30px rgba(0,0,0,0.22),
+          0 0 14px rgba(255,204,69,0.5);
+      }
+      to {
+        box-shadow:
+          inset 0 0 30px rgba(0,0,0,0.22),
+          0 0 35px rgba(255,204,69,1);
+      }
+    }
+
+    .display-no {
+      font-size: 34px;
+      font-weight: 900;
+      color: #0d50b7;
+    }
+
+    .display-name {
+      font-size: 34px;
+      font-weight: 900;
+      margin-top: 8px;
+      text-transform: uppercase;
+    }
+
+    .display-dept {
+      font-size: 18px;
+      margin-top: 8px;
+      font-weight: 700;
+      opacity: 0.75;
+    }
+
+    .select {
+      width: 100%;
+      padding: 14px 15px;
+      border-radius: 12px;
+      border: 2px solid #ffcc45;
+      font-size: 15px;
+      font-weight: 800;
+      color: #07163b;
+      outline: none;
+      margin: 8px 0 12px;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 13px;
+      padding: 14px 18px;
+      font-size: 15px;
+      font-weight: 900;
+      cursor: pointer;
+      transition: transform 0.15s, filter 0.15s;
+      min-width: 150px;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.08);
+    }
+
+    .btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .btn-gold {
+      background: linear-gradient(180deg, #ffe89c, #d59a23);
+      color: #06143b;
+    }
+
+    .btn-green {
+      background: linear-gradient(180deg, #34d86f, #138c3d);
+      color: #fff;
+    }
+
+    .btn-blue {
+      background: linear-gradient(180deg, #2075e6, #083c92);
+      color: #fff;
+    }
+
+    .btn-red {
+      background: linear-gradient(180deg, #ff5c52, #ae2018);
+      color: #fff;
+    }
+
+    .prize-card {
+      text-align: center;
+      padding: 18px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      margin-bottom: 16px;
+    }
+
+    .prize-label {
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+
+    .prize-name {
+      color: #ffcc45;
+      font-weight: 900;
+      font-size: 32px;
+      margin: 12px 0;
+      line-height: 1.1;
+    }
+
+    .prize-category {
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .winner-big {
       display: none;
+      margin-top: 22px;
+      border-radius: 22px;
+      border: 2px solid rgba(255, 204, 69, 0.9);
+      background:
+        radial-gradient(circle at top, rgba(255,204,69,0.16), transparent 35%),
+        linear-gradient(135deg, rgba(3,28,76,0.98), rgba(1,10,30,0.98));
+      padding: 26px;
+      text-align: center;
+      box-shadow: 0 14px 40px rgba(0,0,0,0.35);
+      position: relative;
+      overflow: hidden;
     }
 
-    .winner-screen h1 {
-      font-size: 56px;
-      color: #ffca3a;
-      margin: 0 0 20px;
+    .winner-big.show {
+      display: block;
+      animation: winnerPop 0.55s ease-out;
     }
 
-    .winner-name {
-      font-size: 42px;
-      font-weight: bold;
-      color: #ffca3a;
-      margin: 15px 0;
+    @keyframes winnerPop {
+      from {
+        opacity: 0;
+        transform: scale(0.94);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
 
-    .winner-info {
-      font-size: 22px;
-      margin: 8px 0;
+    .winner-big h1 {
+      margin: 0 0 12px;
+      color: #ffcc45;
+      font-size: 54px;
+      letter-spacing: 2px;
+    }
+
+    .winner-big .name {
+      font-size: 40px;
+      font-weight: 900;
+      color: #ffcc45;
+      text-transform: uppercase;
+      margin: 10px 0;
+    }
+
+    .winner-big .info {
+      font-size: 19px;
+      font-weight: 700;
+      margin-top: 8px;
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .feature {
+      padding: 13px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.11);
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .feature-icon {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background: rgba(255, 204, 69, 0.16);
+      border: 1px solid rgba(255, 204, 69, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .feature strong {
+      display: block;
+      color: #fff;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .feature span {
+      color: rgba(255,255,255,0.72);
+      font-size: 12px;
     }
 
     .footer {
+      padding: 18px 34px 24px;
       text-align: center;
-      padding: 20px;
-      color: rgba(255,255,255,0.7);
-      font-size: 13px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.65);
     }
 
-    @media screen and (max-width: 1000px) {
-      .cards, .main-grid {
+    .loading {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 8, 25, 0.86);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+      font-size: 20px;
+      font-weight: 900;
+      color: #ffcc45;
+    }
+
+    .loading.show {
+      display: flex;
+    }
+
+    @media (max-width: 1100px) {
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .main-grid {
         grid-template-columns: 1fr;
       }
 
-      .title h1 {
-        font-size: 25px;
+      .topbar {
+        flex-direction: column;
+        gap: 18px;
+        text-align: center;
+      }
+
+      .brand {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .brand-text h1 {
+        font-size: 24px;
+      }
+
+      .brand-text h2 {
+        font-size: 16px;
+      }
+
+      .display-name {
+        font-size: 24px;
+      }
+
+      .winner-big h1 {
+        font-size: 38px;
+      }
+
+      .winner-big .name {
+        font-size: 26px;
       }
     }
   </style>
 </head>
 
 <body>
-  <div class="header">
-    <div class="logo-area">
-      <div class="logo-box">PKPJ</div>
-      <div class="title">
-        <h1>CABUTAN BERTUAH</h1>
-        <p>HARI KELUARGA PKPJ JOHOR 2026</p>
+  <div class="loading" id="loading">Sedang diproses...</div>
+
+  <div class="topbar">
+    <div class="brand">
+      <div class="logo">PKPJ</div>
+      <div class="brand-text">
+        <h1>SISTEM CABUTAN BERTUAH</h1>
+        <h2>HARI KELUARGA PKPJ JOHOR 2026</h2>
+        <p>Bersama Membina Komuniti, Merealisasi Impian</p>
       </div>
     </div>
 
-    <div class="clock">
-      <div id="timeNow">--:--:--</div>
-      <div>25 Mei 2026</div>
+    <div class="clock-box">
+      <div class="time" id="timeNow">--:--:--</div>
+      <div class="date" id="dateNow">--</div>
     </div>
   </div>
 
-  <div class="container">
-    <div class="cards">
-      <div class="card">
-        <div class="label">Jumlah Peserta</div>
-        <div class="number" id="jumlahPeserta">0</div>
-        <div>Orang</div>
+  <div class="page">
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-icon">👥</div>
+        <div>
+          <div class="stat-label">Jumlah Peserta</div>
+          <div class="stat-number" id="jumlahPeserta">0</div>
+        </div>
       </div>
 
-      <div class="card">
-        <div class="label">Sudah Menang</div>
-        <div class="number" id="sudahMenang">0</div>
-        <div>Orang</div>
+      <div class="stat-card">
+        <div class="stat-icon">🏆</div>
+        <div>
+          <div class="stat-label">Sudah Menang</div>
+          <div class="stat-number" id="sudahMenang">0</div>
+        </div>
       </div>
 
-      <div class="card">
-        <div class="label">Baki Peserta</div>
-        <div class="number" id="bakiPeserta">0</div>
-        <div>Orang</div>
+      <div class="stat-card">
+        <div class="stat-icon">👤</div>
+        <div>
+          <div class="stat-label">Baki Peserta</div>
+          <div class="stat-number" id="bakiPeserta">0</div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">🎁</div>
+        <div>
+          <div class="stat-label">Hadiah Aktif</div>
+          <div class="stat-number" id="jumlahHadiah">0</div>
+        </div>
       </div>
     </div>
 
     <div class="main-grid">
       <div class="panel">
-        <h3>Senarai Pemenang</h3>
+        <h3 class="panel-title">
+          Pemenang Terdahulu
+          <span class="pill" id="winnerCountPill">0 Rekod</span>
+        </h3>
+
         <table>
           <thead>
             <tr>
-              <th>No</th>
+              <th>#</th>
               <th>Nama</th>
               <th>Hadiah</th>
             </tr>
@@ -347,42 +627,89 @@
         </table>
       </div>
 
-      <div class="panel draw-area">
-        <div class="draw-title">PAPARAN CABUTAN</div>
+      <div class="panel draw-panel">
+        <div class="draw-content">
+          <div class="status-text" id="statusText">Sedia Untuk Cabutan</div>
 
-        <div class="name-display">
-          <div class="no" id="displayNo">---</div>
-          <div class="name" id="displayName">Sedia Untuk Cabutan</div>
-          <div class="dept" id="displayDept">Pilih hadiah dan mula cabutan</div>
+          <div class="screen" id="screenBox">
+            <div class="display-no" id="displayNo">---</div>
+            <div class="display-name" id="displayName">PILIH HADIAH</div>
+            <div class="display-dept" id="displayDept">Kemudian tekan Mula Cabutan</div>
+          </div>
+
+          <select class="select" id="hadiahSelect" onchange="onHadiahChange()">
+            <option value="">Pilih Hadiah</option>
+          </select>
+
+          <div class="button-row">
+            <button class="btn btn-gold" id="btnMula" onclick="mulaCabutan()">🎁 MULA CABUTAN</button>
+            <button class="btn btn-green" id="btnSahkan" onclick="sahkanPemenang()">✅ SAHKAN</button>
+            <button class="btn btn-blue" onclick="cabutSemula()">🔄 CABUT SEMULA</button>
+          </div>
+
+          <div class="winner-big" id="winnerScreen">
+            <h1>TAHNIAH!</h1>
+            <div class="name" id="winnerNameBig">NAMA PEMENANG</div>
+            <div class="info" id="winnerDeptBig">BAHAGIAN</div>
+            <div class="info" id="winnerPrizeBig">HADIAH</div>
+            <div class="info" id="winnerNoBig">NO PESERTA</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="panel">
+          <h3 class="panel-title">Hadiah Semasa</h3>
+
+          <div class="prize-card">
+            <div class="prize-label">Hadiah Dipilih</div>
+            <div class="prize-name" id="hadiahSemasa">Belum Dipilih</div>
+            <div class="prize-category" id="kategoriSemasa">-</div>
+          </div>
+
+          <button class="btn btn-red" style="width:100%;" onclick="resetSistem()">⚠ RESET PEMENANG</button>
         </div>
 
-        <select id="hadiahSelect">
-          <option value="">Pilih Hadiah</option>
-        </select>
+        <div class="panel" style="margin-top:20px;">
+          <h3 class="panel-title">Ciri-Ciri Sistem</h3>
 
-        <button class="btn btn-gold" onclick="mulaCabutan()">🎁 MULA CABUTAN</button>
-        <button class="btn btn-green" onclick="sahkanPemenang()">✅ SAHKAN PEMENANG</button>
-        <button class="btn btn-blue" onclick="cabutSemula()">🔄 CABUT SEMULA</button>
-      </div>
+          <div class="feature-list">
+            <div class="feature">
+              <div class="feature-icon">✅</div>
+              <div>
+                <strong>Elak Menang Dua Kali</strong>
+                <span>Peserta yang sudah menang akan dikeluarkan.</span>
+              </div>
+            </div>
 
-      <div class="panel prize-box">
-        <div class="small">HADIAH SEMASA</div>
-        <div class="prize" id="hadiahSemasa">Belum Dipilih</div>
-        <div id="kategoriSemasa">-</div>
+            <div class="feature">
+              <div class="feature-icon">🎲</div>
+              <div>
+                <strong>Cabutan Rawak</strong>
+                <span>Cabutan dibuat secara rawak daripada senarai layak.</span>
+              </div>
+            </div>
 
-        <hr style="border-color: rgba(255,255,255,0.15); margin: 25px 0;">
+            <div class="feature">
+              <div class="feature-icon">💾</div>
+              <div>
+                <strong>Simpan Automatik</strong>
+                <span>Pemenang disimpan terus dalam Google Sheet.</span>
+              </div>
+            </div>
 
-        <button class="btn btn-red" onclick="resetSistem()">RESET SISTEM</button>
+            <div class="feature">
+              <div class="feature-icon">📋</div>
+              <div>
+                <strong>Log Aktiviti</strong>
+                <span>Cabutan, pengesahan dan reset direkodkan.</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="winner-screen" id="winnerScreen">
-      <h1>TAHNIAH!</h1>
-      <div class="winner-name" id="winnerNameBig">NAMA PEMENANG</div>
-      <div class="winner-info" id="winnerDeptBig">BAHAGIAN</div>
-      <div class="winner-info" id="winnerPrizeBig">HADIAH</div>
-      <div class="winner-info" id="winnerNoBig">NO PESERTA</div>
-    </div>
   </div>
 
   <div class="footer">
@@ -390,69 +717,149 @@
   </div>
 
   <script>
-    let dashboardData = {};
+    let dashboardData = {
+      peserta: [],
+      hadiah: [],
+      pemenang: []
+    };
+
     let selectedWinner = null;
     let selectedPrize = null;
     let rollingInterval = null;
+    let isRolling = false;
+
+    function showLoading(show) {
+      document.getElementById("loading").classList.toggle("show", show);
+    }
 
     function updateClock() {
       const now = new Date();
-      document.getElementById("timeNow").innerText = now.toLocaleTimeString("en-MY");
+
+      document.getElementById("timeNow").innerText = now.toLocaleTimeString("en-MY", {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit"
+      });
+
+      document.getElementById("dateNow").innerText = now.toLocaleDateString("ms-MY", {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+      });
     }
 
     setInterval(updateClock, 1000);
     updateClock();
 
     function loadDashboard() {
+      showLoading(true);
+
       google.script.run
         .withSuccessHandler(function(data) {
+          showLoading(false);
+
+          if (!data || !data.success) {
+            alert("Gagal load dashboard.");
+            return;
+          }
+
           dashboardData = data;
 
           document.getElementById("jumlahPeserta").innerText = data.jumlahPeserta;
           document.getElementById("sudahMenang").innerText = data.sudahMenang;
           document.getElementById("bakiPeserta").innerText = data.bakiPeserta;
+          document.getElementById("jumlahHadiah").innerText = data.hadiah.length;
+          document.getElementById("winnerCountPill").innerText = data.pemenang.length + " Rekod";
 
           loadHadiah(data.hadiah);
           loadPemenang(data.pemenang);
         })
+        .withFailureHandler(function(error) {
+          showLoading(false);
+          alert("Error: " + error.message);
+        })
         .getDashboardData();
     }
 
-    function loadHadiah(hadiah) {
+    function loadHadiah(hadiahList) {
       const select = document.getElementById("hadiahSelect");
+      const currentValue = select.value;
+
       select.innerHTML = '<option value="">Pilih Hadiah</option>';
 
-      hadiah.forEach(h => {
-        if (h.Status === "Aktif") {
-          const option = document.createElement("option");
-          option.value = h.IDHadiah;
-          option.textContent = h.NamaHadiah + " - " + h.Kategori;
-          select.appendChild(option);
-        }
+      hadiahList.forEach(function(h) {
+        const option = document.createElement("option");
+        option.value = h.IDHadiah;
+        option.textContent = h.NamaHadiah + " - " + h.Kategori + " (" + h.JumlahPemenang + " pemenang)";
+        select.appendChild(option);
       });
+
+      if (currentValue) {
+        select.value = currentValue;
+      }
     }
 
-    function loadPemenang(pemenang) {
+    function loadPemenang(pemenangList) {
       const tbody = document.getElementById("winnerList");
       tbody.innerHTML = "";
 
-      if (pemenang.length === 0) {
+      if (!pemenangList || pemenangList.length === 0) {
         tbody.innerHTML = '<tr><td colspan="3">Belum ada pemenang</td></tr>';
         return;
       }
 
-      pemenang.slice(-8).reverse().forEach((p, index) => {
-        const tr = document.createElement("tr");
-        tr.innerHTML = `
+      const latest = pemenangList.slice(-10).reverse();
+
+      latest.forEach(function(p, index) {
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
           <td>${index + 1}</td>
-          <td>${p.Nama}</td>
-          <td>${p.Hadiah}</td>
+          <td>${escapeHtml(p.Nama)}</td>
+          <td>${escapeHtml(p.Hadiah)}</td>
         `;
-        tbody.appendChild(tr);
+
+        tbody.appendChild(row);
+      });
+    }
+
+    function onHadiahChange() {
+      const idHadiah = document.getElementById("hadiahSelect").value;
+
+      selectedPrize = dashboardData.hadiah.find(function(h) {
+        return String(h.IDHadiah) === String(idHadiah);
+      });
+
+      if (!selectedPrize) {
+        document.getElementById("hadiahSemasa").innerText = "Belum Dipilih";
+        document.getElementById("kategoriSemasa").innerText = "-";
+        return;
+      }
+
+      document.getElementById("hadiahSemasa").innerText = selectedPrize.NamaHadiah;
+      document.getElementById("kategoriSemasa").innerText = selectedPrize.Kategori;
+      document.getElementById("statusText").innerText = "Hadiah Dipilih";
+    }
+
+    function getPesertaLayakClient() {
+      const noSudahMenang = dashboardData.pemenang.map(function(p) {
+        return String(p.NoPeserta).trim();
+      });
+
+      return dashboardData.peserta.filter(function(p) {
+        const no = String(p.NoPeserta).trim();
+        const status = String(p.Status).trim().toLowerCase();
+
+        return status === "layak" && !noSudahMenang.includes(no);
       });
     }
 
     function mulaCabutan() {
+      if (isRolling) {
+        return;
+      }
+
       const idHadiah = document.getElementById("hadiahSelect").value;
 
       if (!idHadiah) {
@@ -460,26 +867,26 @@
         return;
       }
 
-      document.getElementById("winnerScreen").style.display = "none";
+      selectedWinner = null;
+      document.getElementById("winnerScreen").classList.remove("show");
 
-      selectedPrize = dashboardData.hadiah.find(h => String(h.IDHadiah) === String(idHadiah));
-
-      document.getElementById("hadiahSemasa").innerText = selectedPrize.NamaHadiah;
-      document.getElementById("kategoriSemasa").innerText = selectedPrize.Kategori;
-
-      const pesertaLayak = dashboardData.peserta.filter(p => {
-        const sudahMenang = dashboardData.pemenang.some(w => String(w.NoPeserta) === String(p.NoPeserta));
-        return p.Status === "Layak" && !sudahMenang;
-      });
+      const pesertaLayak = getPesertaLayakClient();
 
       if (pesertaLayak.length === 0) {
-        alert("Tiada peserta layak.");
+        alert("Tiada peserta layak untuk cabutan.");
         return;
       }
 
-      let count = 0;
+      isRolling = true;
+      document.getElementById("btnMula").disabled = true;
+      document.getElementById("btnSahkan").disabled = true;
+      document.getElementById("screenBox").classList.add("rolling");
+      document.getElementById("statusText").innerText = "Cabutan Sedang Dijalankan...";
 
-      rollingInterval = setInterval(() => {
+      let count = 0;
+      const maxCount = 45;
+
+      rollingInterval = setInterval(function() {
         const randomPeserta = pesertaLayak[Math.floor(Math.random() * pesertaLayak.length)];
 
         document.getElementById("displayNo").innerText = randomPeserta.NoPeserta;
@@ -488,12 +895,19 @@
 
         count++;
 
-        if (count > 35) {
+        if (count >= maxCount) {
           clearInterval(rollingInterval);
+          rollingInterval = null;
 
           google.script.run
             .withSuccessHandler(function(result) {
+              isRolling = false;
+              document.getElementById("btnMula").disabled = false;
+              document.getElementById("btnSahkan").disabled = false;
+              document.getElementById("screenBox").classList.remove("rolling");
+
               if (!result.success) {
+                document.getElementById("statusText").innerText = "Cabutan Gagal";
                 alert(result.message);
                 return;
               }
@@ -504,20 +918,34 @@
               document.getElementById("displayNo").innerText = selectedWinner.NoPeserta;
               document.getElementById("displayName").innerText = selectedWinner.Nama;
               document.getElementById("displayDept").innerText = selectedWinner.Bahagian;
+              document.getElementById("statusText").innerText = "Pemenang Terpilih";
 
               showWinnerScreen();
             })
+            .withFailureHandler(function(error) {
+              isRolling = false;
+              document.getElementById("btnMula").disabled = false;
+              document.getElementById("btnSahkan").disabled = false;
+              document.getElementById("screenBox").classList.remove("rolling");
+              document.getElementById("statusText").innerText = "Ralat Sistem";
+              alert("Error: " + error.message);
+            })
             .cabutPemenang(idHadiah);
         }
-      }, 80);
+      }, 70);
     }
 
     function showWinnerScreen() {
-      document.getElementById("winnerScreen").style.display = "block";
+      if (!selectedWinner || !selectedPrize) {
+        return;
+      }
+
       document.getElementById("winnerNameBig").innerText = selectedWinner.Nama;
       document.getElementById("winnerDeptBig").innerText = selectedWinner.Bahagian;
       document.getElementById("winnerPrizeBig").innerText = "HADIAH: " + selectedPrize.NamaHadiah;
       document.getElementById("winnerNoBig").innerText = "NO PESERTA: " + selectedWinner.NoPeserta;
+
+      document.getElementById("winnerScreen").classList.add("show");
     }
 
     function sahkanPemenang() {
@@ -526,52 +954,128 @@
         return;
       }
 
+      const confirmSave = confirm("Sahkan pemenang ini?\n\n" + selectedWinner.Nama + "\nHadiah: " + selectedPrize.NamaHadiah);
+
+      if (!confirmSave) {
+        return;
+      }
+
       const data = {
         NoPeserta: selectedWinner.NoPeserta,
         Nama: selectedWinner.Nama,
         Bahagian: selectedWinner.Bahagian,
+        IDHadiah: selectedPrize.IDHadiah,
         NamaHadiah: selectedPrize.NamaHadiah,
         Kategori: selectedPrize.Kategori
       };
 
+      showLoading(true);
+
       google.script.run
         .withSuccessHandler(function(result) {
-          alert(result.message);
-          selectedWinner = null;
-          selectedPrize = null;
-          loadDashboard();
+          showLoading(false);
 
+          if (!result.success) {
+            alert(result.message);
+            return;
+          }
+
+          alert(result.message);
+
+          selectedWinner = null;
+
+          document.getElementById("winnerScreen").classList.remove("show");
           document.getElementById("displayNo").innerText = "---";
-          document.getElementById("displayName").innerText = "Sedia Untuk Cabutan Seterusnya";
-          document.getElementById("displayDept").innerText = "Pilih hadiah dan mula cabutan";
+          document.getElementById("displayName").innerText = "SEDIA UNTUK CABUTAN";
+          document.getElementById("displayDept").innerText = "Pilih hadiah dan tekan Mula Cabutan";
+          document.getElementById("statusText").innerText = "Pemenang Telah Disahkan";
+
+          loadDashboard();
+        })
+        .withFailureHandler(function(error) {
+          showLoading(false);
+          alert("Error: " + error.message);
         })
         .sahkanPemenang(data);
     }
 
     function cabutSemula() {
+      if (isRolling) {
+        return;
+      }
+
       selectedWinner = null;
-      document.getElementById("winnerScreen").style.display = "none";
+
+      document.getElementById("winnerScreen").classList.remove("show");
       document.getElementById("displayNo").innerText = "---";
-      document.getElementById("displayName").innerText = "Sedia Untuk Cabutan Semula";
+      document.getElementById("displayName").innerText = "CABUT SEMULA";
       document.getElementById("displayDept").innerText = "Tekan Mula Cabutan";
+      document.getElementById("statusText").innerText = "Sedia Untuk Cabutan Semula";
     }
 
     function resetSistem() {
-      const confirmReset = confirm("Adakah anda pasti mahu reset semua pemenang?");
-      if (!confirmReset) return;
+      const confirmOne = confirm("Adakah anda pasti mahu reset semua rekod pemenang?");
 
-      const secondConfirm = confirm("Pengesahan kedua: Semua rekod pemenang akan dipadam.");
-      if (!secondConfirm) return;
+      if (!confirmOne) {
+        return;
+      }
+
+      const confirmTwo = confirm("Pengesahan kedua: Semua rekod dalam sheet Pemenang akan dipadam. Teruskan?");
+
+      if (!confirmTwo) {
+        return;
+      }
+
+      showLoading(true);
 
       google.script.run
         .withSuccessHandler(function(result) {
+          showLoading(false);
+
+          if (!result.success) {
+            alert(result.message);
+            return;
+          }
+
           alert(result.message);
+
+          selectedWinner = null;
+          selectedPrize = null;
+
+          document.getElementById("winnerScreen").classList.remove("show");
+          document.getElementById("hadiahSelect").value = "";
+          document.getElementById("hadiahSemasa").innerText = "Belum Dipilih";
+          document.getElementById("kategoriSemasa").innerText = "-";
+          document.getElementById("displayNo").innerText = "---";
+          document.getElementById("displayName").innerText = "PILIH HADIAH";
+          document.getElementById("displayDept").innerText = "Kemudian tekan Mula Cabutan";
+          document.getElementById("statusText").innerText = "Sistem Telah Direset";
+
           loadDashboard();
+        })
+        .withFailureHandler(function(error) {
+          showLoading(false);
+          alert("Error: " + error.message);
         })
         .resetPemenang();
     }
 
-    loadDashboard();
+    function escapeHtml(text) {
+      if (text === null || text === undefined) {
+        return "";
+      }
+
+      return String(text)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    window.onload = function() {
+      loadDashboard();
+    };
   </script>
 </body>
 </html>
